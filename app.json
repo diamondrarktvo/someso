@@ -1,27 +1,45 @@
 {
   "expo": {
-     "name": "someso",
-     "slug": "someso",
-     "version": "1.0.0",
-     "orientation": "portrait",
-     "icon": "./assets/icon.png",
-     "userInterfaceStyle": "light",
-     "splash": {
-        "image": "./assets/splash.png",
-        "resizeMode": "contain",
+    "name": "someso",
+    "slug": "someso",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-     },
-     "ios": {
-        "supportsTablet": true
-     },
-     "android": {
-        "adaptiveIcon": {
-           "foregroundImage": "./assets/adaptive-icon.png",
-           "backgroundColor": "#ffffff"
+      },
+      "permissions": ["android.permission.RECORD_AUDIO"],
+      "package": "com.diamondrarktvo.someso"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      [
+        "@react-native-voice/voice",
+        {
+          "microphonePermission": "Allow Voice to Text Tutorial to access the microphone",
+          "speechRecognitionPermission": "Allow Voice to Text Tutorial to securely recognize user speech"
         }
-     },
-     "web": {
-        "favicon": "./assets/favicon.png"
-     }
+      ],
+      ["expo-localization"]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "1b09d437-2325-47b9-8e32-e8d7ae1986de"
+      }
+    },
+    "owner": "diamondrarktvo"
   }
 }
