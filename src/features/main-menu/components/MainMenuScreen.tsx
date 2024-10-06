@@ -2,9 +2,11 @@ import { Scaffold, Row, Text } from "_shared";
 
 const MainMenuScreen = () => {
    return (
-      <Row marginVertical='s'>
-         <Text variant={"tertiary"}>MainMenu</Text>
-      </Row>
+     <Scaffold typeOfScreen="stack">
+       <Row>
+         <Text variant={"primary"}>Main Menu</Text>
+       </Row>
+     </Scaffold>
    );
 };
 

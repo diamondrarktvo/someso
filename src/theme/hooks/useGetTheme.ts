@@ -9,7 +9,7 @@ export const useGetTheme = () => {
     secondary,
     mainBackground,
     mainForeground,
-    yellow,
+    tertiary,
     error,
     success,
     white,
@@ -19,7 +19,7 @@ export const useGetTheme = () => {
     text,
     textPrimaryColor,
     transparent,
-    greyNavTab,
+
     blue,
   } = theme.colors;
 
@@ -46,7 +46,7 @@ export const useGetTheme = () => {
       secondary,
       mainBackground,
       mainForeground,
-      yellow,
+      tertiary,
       error,
       success,
       white,
@@ -57,7 +57,6 @@ export const useGetTheme = () => {
       text,
       textPrimaryColor,
       transparent,
-      greyNavTab,
     },
     dimensions: {
       height,

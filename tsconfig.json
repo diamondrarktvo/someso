@@ -8,7 +8,7 @@
      "paths": {
        "_shared": ["src/shared"],
        "_images": ["src/assets/images"],
-       "_config": ["app/config"],
+       "_config": ["src/config"],
        "_features": ["src/features"],
        "_theme": ["src/theme"],
        "_utils": ["src/utils"],
@@ -16,7 +16,7 @@
        "_services": ["src/services"],
        "_i18n": ["src/i18n"],
        "_store": ["src/store"],
-       "_storage": ["app/storage"],
+       "_storage": ["src/storage"],
        "_navigations": ["src/navigations"]
      }
   }

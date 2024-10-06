@@ -23,3 +23,10 @@ export {
   CheckUserConnected,
   Input,
 };
+
+export {
+  functionnalitySelectors,
+  setMenuChoiced,
+  resetMenuChoiced,
+  functionnalitySlice,
+} from "./slice/functionnalitySlice";

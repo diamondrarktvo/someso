@@ -1,8 +1,8 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { removeDataToMMKV, storeDataToMMKV } from "src/storage";
+import { removeDataToMMKV, storeDataToMMKV } from "_storage";
 
 export interface functionnalityStateType {
-  menuChoiced: string;
+  menuChoiced: "sms_ana" | "sms_clim" | "";
 }
 
 const initialState: functionnalityStateType = {
@@ -13,7 +13,7 @@ const functionnalitySlice = createSlice({
   name: "functionnality",
   initialState,
   reducers: {
-    setMenuChoiced: (state, action: PayloadAction<string>) => {
+    setMenuChoiced: (state, action: PayloadAction<"sms_ana" | "sms_clim">) => {
       state.menuChoiced = action.payload;
       storeDataToMMKV("functionnality.menuChoiced", action.payload);
     },
@@ -25,11 +25,11 @@ const functionnalitySlice = createSlice({
   extraReducers: (builder) => {},
 });
 
-export const selectors = {
+export const functionnalitySelectors = {
   menuChoiced: (state: { functionnality: functionnalityStateType }) =>
     state.functionnality.menuChoiced,
 };
 
 export const { setMenuChoiced, resetMenuChoiced } = functionnalitySlice.actions;
 
-export default functionnalitySlice;
+export { functionnalitySlice };

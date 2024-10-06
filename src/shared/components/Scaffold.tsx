@@ -30,7 +30,7 @@ const Scaffold: React.FC<Props> = ({
     <Box
       flex={1}
       paddingHorizontal="s"
-      paddingVertical="s"
+      paddingVertical="m"
       backgroundColor="mainBackground"
       {...props}
     >

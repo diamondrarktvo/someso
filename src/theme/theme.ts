@@ -4,17 +4,14 @@ import { Typography } from "./typography";
 
 //PALETTE
 const palette = {
-  orangePrimary: "#F7AE7E",
-  orangeDark: "#7E5940",
-  orangePrimaryInput: "#F6F6F8",
-  yellow: "#F5BD20",
+  emeraldGreen: "#4FC3F7",
+  yellow: "#F7B32B",
 
   redBordeaux: "#FB222D",
 
   white: "#ffffff",
   grey: "#D9D9D9",
-  greyNavTab: "#999999",
-  blue: "#42a5f5",
+  blue: "#4FC3F7",
   offWhite: "#F6F6F8",
   success: "green",
   black: "#0B0B0B",
@@ -28,12 +25,9 @@ const theme = createTheme({
   colors: {
     mainBackground: palette.white,
     mainForeground: palette.black,
-    primary: palette.orangePrimary,
-    primaryDark: palette.orangeDark,
-    input: palette.orangePrimaryInput,
-    secondary: palette.grey, //grey
-    greyNavTab: palette.greyNavTab,
-    yellow: palette.yellow,
+    primary: palette.emeraldGreen,
+    secondary: palette.blue, //grey
+    tertiary: palette.yellow,
     error: palette.redBordeaux,
     blue: palette.blue,
     success: palette.success,
@@ -44,7 +38,7 @@ const theme = createTheme({
     overlayDarkBg: palette.overlayDarkBg,
     withoutOverlayDarkBg: palette.withoutOverlayDarkBg,
     text: palette.black,
-    textPrimaryColor: palette.orangePrimary,
+    textPrimaryColor: palette.emeraldGreen,
     transparent: palette.transparent,
   },
   spacing: {
