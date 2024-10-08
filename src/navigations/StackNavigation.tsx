@@ -8,7 +8,7 @@ import { StackParamList } from "./Types";
 
 //IMPORT NAVIGATION TAB
 import TabNavigation from "./TabNavigation";
-import { MainMenuScreen } from "_features";
+import { MainMenuScreen, OnboardingScreen } from "_features";
 import { useSelector } from "react-redux";
 import { functionnalitySelectors } from "_shared";
 
@@ -18,12 +18,21 @@ const Stack = createStackNavigator<StackParamList>();
 
 const StackNavigation = () => {
   const menuChoicedByUser = useSelector(functionnalitySelectors.menuChoiced);
+  const isUserAlreadyShowOnboardingScreen = useSelector(
+    functionnalitySelectors.isUserAlreadyShowOnboardingScreen,
+  );
 
   console.log("menuChoicedByUser", menuChoicedByUser);
 
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName={"main_tabs"}>
+      <Stack.Navigator
+        initialRouteName={
+          isUserAlreadyShowOnboardingScreen
+            ? "main_menu_screen"
+            : "main_menu_screen"
+        }
+      >
         {menuChoicedByUser === "sms_ana" ||
           (menuChoicedByUser === "sms_clim" && (
             <Stack.Group
@@ -32,6 +41,17 @@ const StackNavigation = () => {
               <Stack.Screen name={"main_tabs"} component={TabNavigation} />
             </Stack.Group>
           ))}
+
+        {!isUserAlreadyShowOnboardingScreen && (
+          <Stack.Group
+            screenOptions={stackNavigationConfig.screenOptionsForHiddenHeader}
+          >
+            <Stack.Screen
+              name={"onboarding_screen"}
+              component={OnboardingScreen}
+            />
+          </Stack.Group>
+        )}
 
         <Stack.Group
           screenOptions={stackNavigationConfig.screenOptionsForHiddenHeader}

@@ -6,8 +6,9 @@ export interface StackNavigationConfig {
 }
 
 export type StackParamList = {
-   main_tabs: undefined;
-   main_menu_screen: undefined;
+  main_tabs: undefined;
+  main_menu_screen: undefined;
+  onboarding_screen: undefined;
 };
 
 export type TabParamList = {
