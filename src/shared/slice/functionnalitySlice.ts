@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { removeDataToMMKV, storeDataToMMKV } from "_storage";
+import { storage, storeDataToMMKV } from "_storage";
 
 export interface functionnalityStateType {
   isUserAlreadyShowOnboardingScreen: boolean;
@@ -17,10 +17,16 @@ const functionnalitySlice = createSlice({
   reducers: {
     setUserShowOnboardingScreen: (state, action: PayloadAction<boolean>) => {
       state.isUserAlreadyShowOnboardingScreen = action.payload;
-      storeDataToMMKV(
-        "functionnality.isUserAlreadyShowOnboardingScreen",
-        action.payload,
-      );
+      console.log("state.isUserAlreadyShowOnboardingScreen", action.payload);
+
+      if (
+        !storage.contains("functionnality.isUserAlreadyShowOnboardingScreen")
+      ) {
+        storeDataToMMKV(
+          "functionnality.isUserAlreadyShowOnboardingScreen",
+          action.payload,
+        );
+      }
     },
     setMenuChoiced: (state, action: PayloadAction<"sms_ana" | "sms_clim">) => {
       state.menuChoiced = action.payload;

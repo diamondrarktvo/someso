@@ -1,3 +1,3 @@
-import { useSpeechToText } from "./useSpeechToText";
+export { useSpeechToText } from "./useSpeechToText";
 
-export { useSpeechToText };
+export { useKnowIfSkipOnboarding } from "./useKnowIfSkipOnboarding";

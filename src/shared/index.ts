@@ -25,8 +25,11 @@ export {
 };
 
 export {
+  setUserShowOnboardingScreen,
   functionnalitySelectors,
   setMenuChoiced,
   resetMenuChoiced,
   functionnalitySlice,
 } from "./slice/functionnalitySlice";
+
+export { STYLES } from "./styles";

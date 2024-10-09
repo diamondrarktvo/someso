@@ -31,7 +31,7 @@ const Scaffold: React.FC<Props> = ({
       flex={1}
       paddingHorizontal="s"
       paddingVertical="m"
-      backgroundColor="mainBackground"
+      backgroundColor={props.backgroundColor ?? "mainBackground"}
       {...props}
     >
       {typeOfScreen === "tab" && <HeaderTabTitle title={titleTabScreen} />}

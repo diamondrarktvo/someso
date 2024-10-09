@@ -20,10 +20,10 @@ const storeObjectDataToMMKV = (key: string, value: object) => {
 };
 
 /**
- * 
+ *
  * @param key
- * @param typeOfData 
- * @returns 
+ * @param typeOfData
+ * @returns
  */
 const getDataToMMKV = (
   key: string,

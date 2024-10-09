@@ -4,13 +4,14 @@ import { Typography } from "./typography";
 
 //PALETTE
 const palette = {
-  emeraldGreen: "#4FC3F7",
+  emeraldGreen: "#2ECC71",
+  funGreen: "#136C39",
   yellow: "#F7B32B",
 
   redBordeaux: "#FB222D",
 
   white: "#ffffff",
-  grey: "#D9D9D9",
+  grey: "#B8B8B8",
   blue: "#4FC3F7",
   offWhite: "#F6F6F8",
   success: "green",
@@ -19,6 +20,11 @@ const palette = {
   overlayDarkBg: "rgba(0, 0, 0, 0.65)",
   withoutOverlayDarkBg: "rgba(1, 1, 1, 0.8)",
   transparent: "transparent",
+  linearColor: [
+    "rgba(79, 195, 247, 0.8)",
+    "rgba(0, 176, 255, 0.65)",
+    "rgba(115, 223, 202, 0.7)",
+  ],
 };
 
 const theme = createTheme({
@@ -26,10 +32,11 @@ const theme = createTheme({
     mainBackground: palette.white,
     mainForeground: palette.black,
     primary: palette.emeraldGreen,
-    secondary: palette.blue, //grey
+    secondary: palette.blue,
     tertiary: palette.yellow,
     error: palette.redBordeaux,
     blue: palette.blue,
+    grey: palette.grey,
     success: palette.success,
     white: palette.white,
     black: palette.black,
@@ -39,6 +46,7 @@ const theme = createTheme({
     withoutOverlayDarkBg: palette.withoutOverlayDarkBg,
     text: palette.black,
     textPrimaryColor: palette.emeraldGreen,
+    textPrimaryDark: palette.funGreen,
     transparent: palette.transparent,
   },
   spacing: {
@@ -124,8 +132,8 @@ const darkTheme = createTheme({
     ...theme.colors,
     mainBackground: palette.black,
     mainForeground: palette.white,
-    primary: palette.orangePrimary,
-    secondary: palette.black, //grey
+    primary: palette.emeraldGreen,
+    secondary: palette.black,
     error: palette.redBordeaux,
     white: palette.offWhite,
     black: palette.offBlack,
@@ -134,4 +142,4 @@ const darkTheme = createTheme({
 });
 
 export type Theme = typeof theme;
-export { theme, darkTheme };
+export { palette, theme, darkTheme };
