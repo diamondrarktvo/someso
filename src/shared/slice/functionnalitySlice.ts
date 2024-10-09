@@ -24,11 +24,9 @@ const functionnalitySlice = createSlice({
     },
     setMenuChoiced: (state, action: PayloadAction<"sms_ana" | "sms_clim">) => {
       state.menuChoiced = action.payload;
-      storeDataToMMKV("functionnality.menuChoiced", action.payload);
     },
     resetMenuChoiced: (state) => {
       state.menuChoiced = "";
-      removeDataToMMKV("functionnality.menuChoiced");
     },
   },
   extraReducers: (builder) => {},

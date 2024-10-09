@@ -30,7 +30,7 @@ const StackNavigation = () => {
         initialRouteName={
           isUserAlreadyShowOnboardingScreen
             ? "main_menu_screen"
-            : "main_menu_screen"
+            : "onboarding_screen"
         }
       >
         {menuChoicedByUser === "sms_ana" ||
@@ -53,11 +53,16 @@ const StackNavigation = () => {
           </Stack.Group>
         )}
 
-        <Stack.Group
-          screenOptions={stackNavigationConfig.screenOptionsForHiddenHeader}
-        >
-          <Stack.Screen name={"main_menu_screen"} component={MainMenuScreen} />
-        </Stack.Group>
+        {!menuChoicedByUser && (
+          <Stack.Group
+            screenOptions={stackNavigationConfig.screenOptionsForHiddenHeader}
+          >
+            <Stack.Screen
+              name={"main_menu_screen"}
+              component={MainMenuScreen}
+            />
+          </Stack.Group>
+        )}
       </Stack.Navigator>
     </NavigationContainer>
   );
