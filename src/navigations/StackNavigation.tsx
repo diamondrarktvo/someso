@@ -23,11 +23,6 @@ const StackNavigation = () => {
 
   const { isMMkVContainValueForSkipOnboarding } = useKnowIfSkipOnboarding();
 
-  console.log(
-    "isMMkVContainValueForSkipOnboarding",
-    isMMkVContainValueForSkipOnboarding,
-  );
-
   return (
     <NavigationContainer>
       <Stack.Navigator

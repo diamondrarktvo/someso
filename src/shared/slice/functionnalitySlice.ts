@@ -20,7 +20,8 @@ const functionnalitySlice = createSlice({
       console.log("state.isUserAlreadyShowOnboardingScreen", action.payload);
 
       if (
-        !storage.contains("functionnality.isUserAlreadyShowOnboardingScreen")
+        !storage.contains("functionnality.isUserAlreadyShowOnboardingScreen") ||
+        !action.payload
       ) {
         storeDataToMMKV(
           "functionnality.isUserAlreadyShowOnboardingScreen",

@@ -12,9 +12,14 @@ export const useKnowIfSkipOnboarding = () => {
   );
 
   useEffect(() => {
-    if (isMMkVContainValueForSkipOnboarding) {
-      dispatch(setUserShowOnboardingScreen(true));
-    }
+    if (
+      !isMMkVContainValueForSkipOnboarding ||
+      isMMkVContainValueForSkipOnboarding === null ||
+      isMMkVContainValueForSkipOnboarding === undefined
+    )
+      return;
+
+    dispatch(setUserShowOnboardingScreen(true));
   }, [isMMkVContainValueForSkipOnboarding, dispatch]);
 
   return {
