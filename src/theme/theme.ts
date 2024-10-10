@@ -2,14 +2,11 @@ import { createTheme } from "@shopify/restyle";
 import { Size } from "./size";
 import { Typography } from "./typography";
 
-//PALETTE
 const palette = {
   emeraldGreen: "#2ECC71",
   funGreen: "#136C39",
   yellow: "#F7B32B",
-
   redBordeaux: "#FB222D",
-
   white: "#ffffff",
   grey: "#B8B8B8",
   blue: "#4FC3F7",
@@ -126,20 +123,21 @@ const theme = createTheme({
   },
 });
 
-const darkTheme = createTheme({
+const smsClimTheme = createTheme({
   ...theme,
   colors: {
     ...theme.colors,
-    mainBackground: palette.black,
-    mainForeground: palette.white,
-    primary: palette.emeraldGreen,
-    secondary: palette.black,
-    error: palette.redBordeaux,
-    white: palette.offWhite,
-    black: palette.offBlack,
-    text: palette.white,
+    primary: palette.yellow,
+    textPrimaryColor: palette.yellow,
+    mainBackground: palette.offWhite,
+    mainForeground: palette.black,
+    text: palette.black,
+    white: palette.white,
+    black: palette.black,
+    secondary: palette.blue,
+    tertiary: palette.funGreen,
   },
 });
 
 export type Theme = typeof theme;
-export { palette, theme, darkTheme };
+export { palette, theme, smsClimTheme };

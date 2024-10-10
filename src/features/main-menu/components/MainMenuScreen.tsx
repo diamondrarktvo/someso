@@ -1,12 +1,4 @@
-import {
-  Scaffold,
-  Row,
-  Text,
-  STYLES,
-  Box,
-  Image,
-  setMenuChoiced,
-} from "_shared";
+import { Scaffold, Text, STYLES, Box, setMenuChoiced } from "_shared";
 import { palette } from "_theme";
 import { LinearGradient } from "expo-linear-gradient";
 import LogoWhiteSVG from "_images/svg/logo-white.svg";
@@ -42,8 +34,8 @@ const MainMenuScreen = () => {
         backgroundColor={"transparent"}
         paddingBottom={"xs"}
       >
-        <Box alignItems={"center"} pt={"s"}>
-          <LogoWhiteSVG width={RFValue(200)} height={RFValue(100)} />
+        <Box alignItems={"center"}>
+          <LogoWhiteSVG width={RFValue(200)} height={RFValue(90)} />
 
           <Box
             height={heightPercentageToDP(28)}
