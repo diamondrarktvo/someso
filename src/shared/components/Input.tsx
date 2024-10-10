@@ -1,8 +1,8 @@
-import { Input as RNEInput } from "@rneui/themed";
+import { Input as RNEInput, InputProps } from "@rneui/themed";
 import React from "react";
 import Box from "./Box";
 
-type Props = {
+type Props = InputProps & {
   width?: number;
 };
 

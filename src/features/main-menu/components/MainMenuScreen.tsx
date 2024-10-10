@@ -2,8 +2,8 @@ import { Scaffold, Text, STYLES, Box, setMenuChoiced } from "_shared";
 import { palette } from "_theme";
 import { LinearGradient } from "expo-linear-gradient";
 import LogoWhiteSVG from "_images/svg/logo-white.svg";
-import IconHealth from "_images/svg/icon-health.svg";
-import IconClimat from "_images/svg/icon-climat.svg";
+import IconHealthSVG from "_images/svg/icon-health.svg";
+import IconClimatSVG from "_images/svg/icon-climat.svg";
 import {
   ALL_MODULES_FOR_SOMESO,
   heightPercentageToDP,
@@ -71,7 +71,7 @@ const MainMenuScreen = () => {
               px={"m"}
               py={"s"}
             >
-              <IconHealth width={RFValue(102)} height={RFValue(77)} />
+              <IconHealthSVG width={RFValue(102)} height={RFValue(77)} />
               <Text variant={"veryBigTitle"} my={"s"}>
                 Figma community
               </Text>
@@ -93,7 +93,7 @@ const MainMenuScreen = () => {
               px={"m"}
               py={"s"}
             >
-              <IconClimat width={RFValue(102)} height={RFValue(77)} />
+              <IconClimatSVG width={RFValue(102)} height={RFValue(77)} />
               <Text variant={"veryBigTitle"} my={"s"}>
                 Figma community
               </Text>
