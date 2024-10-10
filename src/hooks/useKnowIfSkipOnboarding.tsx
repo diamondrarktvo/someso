@@ -1,28 +1,25 @@
 import { setUserShowOnboardingScreen } from "_shared";
 import { getDataToMMKV } from "_storage";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 
 export const useKnowIfSkipOnboarding = () => {
+  const [loading, setLoading] = useState(true);
   const dispatch = useDispatch();
 
-  const isMMkVContainValueForSkipOnboarding = getDataToMMKV(
-    "functionnality.isUserAlreadyShowOnboardingScreen",
-    "boolean",
-  );
-
   useEffect(() => {
-    if (
-      !isMMkVContainValueForSkipOnboarding ||
-      isMMkVContainValueForSkipOnboarding === null ||
-      isMMkVContainValueForSkipOnboarding === undefined
-    )
-      return;
+    getDataToMMKV("functionnality.isUserAlreadyShowOnboardingScreen", "boolean")
+      .then((value) => {
+        if (value && typeof value === "boolean") {
+          dispatch(setUserShowOnboardingScreen(value));
+        }
+        setLoading(false);
+      })
+      .catch((e) => {
+        console.log("error getting data from MMKV : ", e);
+        setLoading(false);
+      });
+  }, [dispatch]);
 
-    dispatch(setUserShowOnboardingScreen(true));
-  }, [isMMkVContainValueForSkipOnboarding, dispatch]);
-
-  return {
-    isMMkVContainValueForSkipOnboarding,
-  };
+  return { loading };
 };

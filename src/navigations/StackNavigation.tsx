@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 //IMPORT FROM NODE_MODULES
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
+import * as SplashScreen from "expo-splash-screen";
 
 //LOCAL IMPORT
 import { stackNavigationConfig } from "./configStack";
@@ -20,8 +21,31 @@ const Stack = createStackNavigator<StackParamList>();
 
 const StackNavigation = () => {
   const menuChoicedByUser = useSelector(functionnalitySelectors.menuChoiced);
+  const isMMkVContainValueForSkipOnboarding = useSelector(
+    functionnalitySelectors.isUserAlreadyShowOnboardingScreen,
+  );
 
-  const { isMMkVContainValueForSkipOnboarding } = useKnowIfSkipOnboarding();
+  const { loading } = useKnowIfSkipOnboarding();
+
+  useEffect(() => {
+    const handleSplashScreen = async () => {
+      try {
+        await SplashScreen.preventAutoHideAsync();
+
+        if (!loading) {
+          await SplashScreen.hideAsync();
+        }
+      } catch (e) {
+        console.warn(e);
+      }
+    };
+
+    handleSplashScreen();
+  }, [loading]);
+
+  if (loading) {
+    return null;
+  }
 
   return (
     <NavigationContainer>

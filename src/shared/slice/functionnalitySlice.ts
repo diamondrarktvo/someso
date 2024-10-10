@@ -17,8 +17,6 @@ const functionnalitySlice = createSlice({
   reducers: {
     setUserShowOnboardingScreen: (state, action: PayloadAction<boolean>) => {
       state.isUserAlreadyShowOnboardingScreen = action.payload;
-      console.log("state.isUserAlreadyShowOnboardingScreen", action.payload);
-
       if (
         !storage.contains("functionnality.isUserAlreadyShowOnboardingScreen") ||
         !action.payload

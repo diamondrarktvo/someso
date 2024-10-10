@@ -5,8 +5,10 @@ export const storage = new MMKV();
 const storeDataToMMKV = (key: string, value: string | number | boolean) => {
   try {
     storage.set(key, value);
+    return Promise.resolve(true);
   } catch (e) {
     console.log("error saving data to MMKV : ", e);
+    return Promise.resolve(false);
   }
 };
 
@@ -14,8 +16,10 @@ const storeObjectDataToMMKV = (key: string, value: object) => {
   try {
     const jsonValue = JSON.stringify(value);
     storage.set(key, jsonValue);
+    return Promise.resolve(true);
   } catch (e) {
     console.log("error saving object data to MMKV : ", e);
+    return Promise.resolve(false);
   }
 };
 
@@ -32,25 +36,32 @@ const getDataToMMKV = (
   try {
     switch (typeOfData) {
       case "string":
-        return storage.getString(key);
+        let valueString = storage.getString(key);
+        return Promise.resolve(valueString);
       case "number":
-        return storage.getNumber(key);
+        let valueNumber = storage.getNumber(key);
+        return Promise.resolve(valueNumber);
       case "boolean":
-        return storage.getBoolean(key);
+        let valueBoolean = storage.getBoolean(key);
+        return Promise.resolve(valueBoolean);
       default:
-        return storage.getString(key);
+        let valueDefault = storage.getString(key);
+        return Promise.resolve(valueDefault);
     }
   } catch (e) {
     console.log("error getting data from MMKV : ", e);
+    return Promise.resolve(false);
   }
 };
 
 const getObjectDataToMMKV = (key: string) => {
   try {
-    const jsonValue = storage.getString(key);
-    return jsonValue != null ? JSON.parse(jsonValue) : null;
+    let jsonValue = storage.getString(key);
+    let value = jsonValue != null ? JSON.parse(jsonValue) : null;
+    return Promise.resolve(value);
   } catch (e) {
     console.log("error getting object data from MMKV : ", e);
+    return Promise.resolve(false);
   }
 };
 
@@ -58,8 +69,10 @@ const removeDataToMMKV = (key: string) => {
   try {
     storage.delete(key);
     console.log(key + " removed from MMKV");
+    return Promise.resolve();
   } catch (e) {
     console.log("error removing data from MMKV : ", e);
+    return Promise.resolve(false);
   }
 };
 
