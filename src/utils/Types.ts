@@ -13,3 +13,5 @@ export interface TopTabRouteTypes {
   topLabel: string;
   component: React.FC<unknown>;
 }
+
+export type ModuleSomesoTypes = "sms_ana" | "sms_clim";

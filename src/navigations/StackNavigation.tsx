@@ -43,6 +43,8 @@ const StackNavigation = () => {
     handleSplashScreen();
   }, [loading]);
 
+  console.log("menuChoicedByUser", menuChoicedByUser);
+
   if (loading) {
     return null;
   }
@@ -51,24 +53,19 @@ const StackNavigation = () => {
     <NavigationContainer>
       <Stack.Navigator
         initialRouteName={
-          isMMkVContainValueForSkipOnboarding
+          menuChoicedByUser
+            ? "main_tabs"
+            : isMMkVContainValueForSkipOnboarding
             ? "main_menu_screen"
             : "onboarding_screen"
         }
       >
-        {menuChoicedByUser === "sms_ana" ||
-          (menuChoicedByUser === "sms_clim" && (
-            <Stack.Group
-              screenOptions={stackNavigationConfig.screenOptionsForHiddenHeader}
-            >
-              <Stack.Screen name={"main_tabs"} component={TabNavigation} />
-            </Stack.Group>
-          ))}
-
         <Stack.Group
           screenOptions={stackNavigationConfig.screenOptionsForHiddenHeader}
         >
-          {!menuChoicedByUser && (
+          {menuChoicedByUser ? (
+            <Stack.Screen name={"main_tabs"} component={TabNavigation} />
+          ) : (
             <>
               {!isMMkVContainValueForSkipOnboarding && (
                 <Stack.Screen

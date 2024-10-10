@@ -1,4 +1,5 @@
 import { Dimensions } from "react-native";
+import { ModuleSomesoTypes } from "./Types";
 
 export const HTTP_STATUS_CODES = {
   OK: 200,
@@ -20,4 +21,9 @@ export const HTTP_STATUS_CODES = {
 export const SCREEN_SIZE = {
   width: Dimensions.get("window").width,
   height: Dimensions.get("window").height,
+};
+
+export const ALL_MODULES_FOR_SOMESO = {
+  SMS_ANA: "sms_ana" as ModuleSomesoTypes,
+  SMS_CLIM: "sms_clim" as ModuleSomesoTypes,
 };
