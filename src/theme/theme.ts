@@ -7,7 +7,7 @@ const palette = {
   funGreen: "#136C39",
   yellow: "#F7B32B",
   redBordeaux: "#FB222D",
-  white: "#ffffff",
+  white: "rgba(248, 246, 255, 1)",
   grey: "#B8B8B8",
   blue: "#4FC3F7",
   offWhite: "#F6F6F8",
@@ -17,11 +17,12 @@ const palette = {
   overlayDarkBg: "rgba(0, 0, 0, 0.65)",
   withoutOverlayDarkBg: "rgba(1, 1, 1, 0.8)",
   transparent: "transparent",
-  linearColor: [
+  defaultLinearColor: [
     "rgba(79, 195, 247, 0.8)",
     "rgba(0, 176, 255, 0.65)",
     "rgba(115, 223, 202, 0.7)",
   ],
+  linearColorHomeBaniere: ["rgba(79, 195, 247, 0.8)", "rgba(0, 176, 255, 0.9)"],
 };
 
 const theme = createTheme({

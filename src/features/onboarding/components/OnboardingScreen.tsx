@@ -15,7 +15,7 @@ export default function OnboardingScreen() {
   return (
     <LinearGradient
       style={STYLES.container}
-      colors={palette.linearColor}
+      colors={palette.defaultLinearColor}
       start={{ x: 0, y: 0 }}
       end={{ x: 0, y: 1 }}
     >

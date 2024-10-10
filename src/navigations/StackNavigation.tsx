@@ -20,7 +20,7 @@ import { useKnowIfSkipOnboarding } from "_hooks";
 const Stack = createStackNavigator<StackParamList>();
 
 const StackNavigation = () => {
-  const menuChoicedByUser = useSelector(functionnalitySelectors.menuChoiced);
+  const moduleChoicedByUser = useSelector(functionnalitySelectors.menuChoiced);
   const isMMkVContainValueForSkipOnboarding = useSelector(
     functionnalitySelectors.isUserAlreadyShowOnboardingScreen,
   );
@@ -43,7 +43,7 @@ const StackNavigation = () => {
     handleSplashScreen();
   }, [loading]);
 
-  console.log("menuChoicedByUser", menuChoicedByUser);
+  console.log("moduleChoicedByUser", moduleChoicedByUser);
 
   if (loading) {
     return null;
@@ -53,7 +53,7 @@ const StackNavigation = () => {
     <NavigationContainer>
       <Stack.Navigator
         initialRouteName={
-          menuChoicedByUser
+          moduleChoicedByUser
             ? "main_tabs"
             : isMMkVContainValueForSkipOnboarding
             ? "main_menu_screen"
@@ -63,7 +63,7 @@ const StackNavigation = () => {
         <Stack.Group
           screenOptions={stackNavigationConfig.screenOptionsForHiddenHeader}
         >
-          {menuChoicedByUser ? (
+          {moduleChoicedByUser ? (
             <Stack.Screen name={"main_tabs"} component={TabNavigation} />
           ) : (
             <>

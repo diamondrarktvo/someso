@@ -8,20 +8,20 @@ import { StatusBar } from "react-native";
 import { useSelector } from "react-redux";
 
 const Main = () => {
-  const menuChoicedByUser = useSelector(functionnalitySelectors.menuChoiced);
+  const moduleChoicedByUser = useSelector(functionnalitySelectors.menuChoiced);
 
   const themeToUsed = useMemo(() => {
-    if (menuChoicedByUser) {
-      if (menuChoicedByUser === "sms_ana") {
+    if (moduleChoicedByUser) {
+      if (moduleChoicedByUser === "sms_ana") {
         return theme;
       }
-      if (menuChoicedByUser === "sms_clim") {
+      if (moduleChoicedByUser === "sms_clim") {
         return smsClimTheme;
       }
     } else {
       return theme;
     }
-  }, [menuChoicedByUser]);
+  }, [moduleChoicedByUser]);
 
   return (
     <ThemeProvider theme={themeToUsed}>

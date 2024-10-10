@@ -9,6 +9,7 @@ import Column from "./components/Column";
 import TouchableOpacity from "./components/TouchableOpacity";
 import CheckUserConnected from "./components/CheckUserConnected";
 import Input from "./components/Input";
+import EmptyList from "./components/EmptyList";
 
 export {
   Icon,
@@ -22,6 +23,7 @@ export {
   TouchableOpacity,
   CheckUserConnected,
   Input,
+  EmptyList,
 };
 
 export {
