@@ -6,9 +6,16 @@ import { theme, darkTheme } from "_theme";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { Provider } from "react-redux";
 import { store } from "_store";
+import { LogBox } from "react-native";
 
 export default function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
+
+  // FIXME: Remove this when the issue is fixed
+  LogBox.ignoreLogs([
+    "`new NativeEventEmitter()` was called with a non-null argument without the required `addListener` method.",
+    "`new NativeEventEmitter()` was called with a non-null argument without the required `removeListeners` method.",
+  ]);
 
   return (
     <Provider store={store}>

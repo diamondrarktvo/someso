@@ -1,17 +1,13 @@
 import React, { useCallback } from "react";
-import {
-  Box,
-  Button,
-  Scaffold,
-  setUserShowOnboardingScreen,
-  STYLES,
-  Text,
-} from "_shared";
+import { Box, Button, Scaffold, STYLES, Text } from "_shared";
 import { LinearGradient } from "expo-linear-gradient";
 import { palette } from "_theme";
 import WomanSVG from "_images/woman-welcome.svg";
+import EllipseTop from "_images/semi-ellipse-top.svg";
+import EllipseLeft from "_images/semi-ellipse-left.svg";
 import { onBoardingStyles } from "./styles";
 import { useStartApp } from "../hooks/useStartApp";
+import { RFValue } from "_utils";
 
 export default function OnboardingScreen() {
   const { loading, startApp } = useStartApp();
@@ -23,6 +19,9 @@ export default function OnboardingScreen() {
       start={{ x: 0, y: 0 }}
       end={{ x: 0, y: 1 }}
     >
+      <Box position={"absolute"} top={0} right={0}>
+        <EllipseTop width={RFValue(170)} height={RFValue(170)} />
+      </Box>
       <Scaffold
         typeOfScreen="stack"
         backgroundColor={"transparent"}
@@ -31,6 +30,10 @@ export default function OnboardingScreen() {
         paddingVertical="s"
         paddingHorizontal={"s"}
       >
+        <Box position={"absolute"} top={RFValue(140)} left={RFValue(-20)}>
+          <EllipseLeft width={RFValue(170)} height={RFValue(290)} />
+        </Box>
+
         <WomanSVG width={400} height={400} />
 
         <Box
