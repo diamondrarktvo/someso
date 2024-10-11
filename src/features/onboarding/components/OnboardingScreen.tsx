@@ -2,10 +2,9 @@ import React, { useCallback } from "react";
 import { Box, Button, Scaffold, STYLES, Text } from "_shared";
 import { LinearGradient } from "expo-linear-gradient";
 import { palette } from "_theme";
-import WomanSVG from "_images/svg/woman-welcome.svg";
-import EllipseTopSVG from "_images/svg/semi-ellipse-top.svg";
-import EllipseLeftSVG from "_images/svg/semi-ellipse-left.svg";
-import { onBoardingStyles } from "./styles";
+import Woman from "_images/svg/woman-welcome.svg";
+import EllipseTop from "_images/svg/semi-ellipse-top.svg";
+import EllipseLeft from "_images/svg/semi-ellipse-left.svg";
 import { useStartApp } from "../hooks/useStartApp";
 import { RFValue } from "_utils";
 
@@ -20,7 +19,7 @@ export default function OnboardingScreen() {
       end={{ x: 0, y: 1 }}
     >
       <Box position={"absolute"} top={0} right={0}>
-        <EllipseTopSVG width={RFValue(170)} height={RFValue(170)} />
+        <EllipseTop width={RFValue(170)} height={RFValue(170)} />
       </Box>
       <Scaffold
         typeOfScreen="stack"
@@ -31,10 +30,10 @@ export default function OnboardingScreen() {
         paddingHorizontal={"s"}
       >
         <Box position={"absolute"} top={RFValue(140)} left={RFValue(-20)}>
-          <EllipseLeftSVG width={RFValue(170)} height={RFValue(290)} />
+          <EllipseLeft width={RFValue(170)} height={RFValue(290)} />
         </Box>
 
-        <WomanSVG width={400} height={400} />
+        <Woman width={400} height={400} />
 
         <Box
           style={STYLES.boxShadowContainer}

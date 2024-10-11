@@ -127,6 +127,19 @@ const LearnScreen = () => {
           }
         />
       </Box>
+
+      {/* Footer box */}
+      <Row justifyContent={"space-between"}>
+        <Box flex={0.5}>
+          <Icon name={"home"} color={colors.primary} size={sizes.ICON_MEDIUM} />
+        </Box>
+
+        <Box flex={1}>
+          <Text variant={"primaryBold"} textAlign={"center"}>
+            Enroll now
+          </Text>
+        </Box>
+      </Row>
     </Scaffold>
   );
 };

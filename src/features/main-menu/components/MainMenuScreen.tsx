@@ -1,9 +1,9 @@
 import { Scaffold, Text, STYLES, Box, setMenuChoiced } from "_shared";
 import { palette } from "_theme";
 import { LinearGradient } from "expo-linear-gradient";
-import LogoWhiteSVG from "_images/svg/logo-white.svg";
-import IconHealthSVG from "_images/svg/icon-health.svg";
-import IconClimatSVG from "_images/svg/icon-climat.svg";
+import LogoWhite from "_images/svg/logo-white.svg";
+import IconHealth from "_images/svg/icon-health.svg";
+import IconClimat from "_images/svg/icon-climat.svg";
 import {
   ALL_MODULES_FOR_SOMESO,
   heightPercentageToDP,
@@ -35,7 +35,7 @@ const MainMenuScreen = () => {
         paddingBottom={"xs"}
       >
         <Box alignItems={"center"}>
-          <LogoWhiteSVG width={RFValue(200)} height={RFValue(90)} />
+          <LogoWhite width={RFValue(200)} height={RFValue(90)} />
 
           <Box
             height={heightPercentageToDP(28)}
@@ -71,7 +71,7 @@ const MainMenuScreen = () => {
               px={"m"}
               py={"s"}
             >
-              <IconHealthSVG width={RFValue(102)} height={RFValue(77)} />
+              <IconHealth width={RFValue(102)} height={RFValue(77)} />
               <Text variant={"veryBigTitle"} my={"s"}>
                 Figma community
               </Text>
@@ -93,7 +93,7 @@ const MainMenuScreen = () => {
               px={"m"}
               py={"s"}
             >
-              <IconClimatSVG width={RFValue(102)} height={RFValue(77)} />
+              <IconClimat width={RFValue(102)} height={RFValue(77)} />
               <Text variant={"veryBigTitle"} my={"s"}>
                 Figma community
               </Text>

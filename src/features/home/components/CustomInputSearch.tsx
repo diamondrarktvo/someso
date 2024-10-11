@@ -1,8 +1,8 @@
 import { Icon, Row } from "_shared";
 import { RFValue, widthPercentageToDP } from "_utils";
 import { TextInput } from "react-native";
-import IconSearchSVG from "_images/svg/icon-search.svg";
-import IconFilterSVG from "_images/svg/icon-filter.svg";
+import IconSearch from "_images/svg/icon-search.svg";
+import IconFilter from "_images/svg/icon-filter.svg";
 import { homeStyles } from "./styles";
 
 const SearchInput = () => {
@@ -15,9 +15,9 @@ const SearchInput = () => {
       justifyContent={"space-between"}
       alignItems={"center"}
     >
-      <IconSearchSVG height={RFValue(20)} width={RFValue(20)} />
+      <IconSearch height={RFValue(20)} width={RFValue(20)} />
       <TextInput placeholder="Search" style={homeStyles.inputSearch} />
-      <IconFilterSVG height={RFValue(20)} width={RFValue(20)} />
+      <IconFilter height={RFValue(20)} width={RFValue(20)} />
     </Row>
   );
 };
