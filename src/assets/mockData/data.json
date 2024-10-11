@@ -1,0 +1,332 @@
+{
+  "modules": [
+    {
+      "id": "smsclim",
+      "sections": [
+        {
+          "id": "education_sur_le_changement_climatique",
+          "title": "Éducation sur le changement climatique",
+          "items": [
+            {
+              "id": "definition_changement_climatique",
+              "title": "Qu'est-ce que le changement climatique?",
+              "options": [
+                "Définition simple",
+                "Les gaz à effet de serre",
+                "Comprendre le réchauffement global"
+              ]
+            },
+            {
+              "id": "causes_et_consequences",
+              "title": "Causes et conséquences",
+              "options": [
+                "Activités humaines responsables",
+                "Conséquences sur la santé",
+                "Conséquences sur les écosystèmes"
+              ]
+            },
+            {
+              "id": "impacts_sur_la_biodiversite",
+              "title": "Impacts sur la biodiversité",
+              "options": [
+                "Diminution des espèces animales",
+                "Déforestation et ses effets",
+                "Changements dans les cycles des saisons"
+              ]
+            },
+            {
+              "id": "changements_climatiques_afrique_madagascar",
+              "title": "Changements climatiques en Afrique/Madagascar",
+              "options": [
+                "Projections futures",
+                "Politiques climatiques locales"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "conseils_pratiques_pour_ladaptation",
+          "title": "Conseils pratiques pour l'adaptation",
+          "items": [
+            {
+              "id": "conseils_pour_les_agriculteurs",
+              "title": "Conseils pour les agriculteurs",
+              "options": [
+                "Techniques agricoles durables",
+                "Réduction de l'érosion des sols",
+                "Cultures résistantes au changement climatique"
+              ]
+            },
+            {
+              "id": "techniques_preserver_eau",
+              "title": "Techniques pour préserver l'eau",
+              "options": [
+                "Stockage de l'eau de pluie",
+                "Réduction de la consommation d'eau",
+                "Irrigation écologique"
+              ]
+            },
+            {
+              "id": "resilience_des_maisons",
+              "title": "Résilience des maisons face aux catastrophes climatiques",
+              "options": [
+                "Renforcement des structures contre les tempêtes",
+                "Prévention des inondations",
+                "Amélioration de la ventilation naturelle"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "initiatives_communautaires",
+          "title": "Initiatives communautaires",
+          "items": [
+            {
+              "id": "programme_reboisement",
+              "title": "Programme de reboisement",
+              "options": [
+                "Informations sur les zones de reboisement",
+                "Comment participer ?",
+                "Importance du reboisement"
+              ]
+            },
+            {
+              "id": "participez_aux_actions_locales",
+              "title": "Participez aux actions locales",
+              "options": [
+                "Groupes locaux d'action climatique",
+                "Projets de nettoyage et de recyclage"
+              ]
+            },
+            {
+              "id": "sensibilisation_et_formation",
+              "title": "Sensibilisation et formation",
+              "options": []
+            }
+          ]
+        },
+        {
+          "id": "previsions_meteorologiques_locales",
+          "title": "Prévisions météorologiques locales",
+          "options": [
+            "Météo d'aujourd'hui",
+            "Météo pour la semaine",
+            "Autres prévisions"
+          ]
+        },
+        {
+          "id": "actions_pour_reduire_votre_empremte_carbone",
+          "title": "Actions pour réduire votre empreinte carbone",
+          "items": [
+            {
+              "id": "reduction_consommation_energie",
+              "title": "Réduction de la consommation d'énergie",
+              "options": [
+                "Conseils pour économiser l'électricité",
+                "Utilisation d'énergie renouvelable"
+              ]
+            },
+            {
+              "id": "gestion_dechets_et_recyclage",
+              "title": "Gestion des déchets et recyclage",
+              "options": [
+                "Tri des déchets à la maison",
+                "Recyclage des plastiques et matériaux",
+                "Compostage"
+              ]
+            },
+            {
+              "id": "reduction_utilisation_transports_polluants",
+              "title": "Réduire l'utilisation des transports polluants",
+              "options": [
+                "Utilisation des transports publics",
+                "Promotion du covoiturage",
+                "Encourager la marche et le vélo"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "smsana",
+      "sections": [
+        {
+          "id": "sante_reproductive",
+          "title": "Santé reproductive",
+          "items": [
+            {
+              "id": "contraception_information",
+              "title": "Information sur la contraception",
+              "options": [
+                "Types de contraception",
+                "Efficacité des méthodes",
+                "Conseils personnalisés"
+              ]
+            },
+            {
+              "id": "sante_maternelle",
+              "title": "Santé maternelle",
+              "options": [
+                "Conseils pour une grossesse saine",
+                "Suivi post-partum",
+                "Soins pour bébé"
+              ]
+            },
+            {
+              "id": "ist_et_prevention",
+              "title": "IST et prévention",
+              "options": [
+                "Comprendre les IST",
+                "Prévention et traitement",
+                "Test et diagnostic"
+              ]
+            },
+            {
+              "id": "questions_frequentes",
+              "title": "Questions fréquentes",
+              "options": [
+                "Comment prévenir les IST?",
+                "Comment se faire tester?",
+                "Que faire en cas d'infection?"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "droits_des_femmes",
+          "title": "Droits des femmes",
+          "items": [
+            {
+              "id": "droits_en_matiere_de_sante",
+              "title": "Droits en matière de santé",
+              "options": [
+                "Droits en matière de santé",
+                "Droits sexuels et reproductifs",
+                "Lutte contre la violence basée sur le genre"
+              ]
+            },
+            {
+              "id": "droits_sexuels_et_reproductifs",
+              "title": "Droits sexuels et reproductifs",
+              "options": [
+                "Explication des droits",
+                "Législation nationale et internationale",
+                "Organisations de soutien"
+              ]
+            },
+            {
+              "id": "lutte_contre_violence",
+              "title": "Lutte contre la violence basée sur le genre",
+              "options": [
+                "Reconnaître les signes de violence",
+                "Où trouver de l'aide?",
+                "Signalement des abus",
+                "Soutien psychologique"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "education_sexuelle",
+          "title": "Éducation sexuelle",
+          "items": [
+            {
+              "id": "comprendre_son_corps",
+              "title": "Comprendre son corps",
+              "options": [
+                "Anatomie",
+                "Changement à la puberté",
+                "Cycles menstruels"
+              ]
+            },
+            {
+              "id": "relation_consentement",
+              "title": "Les relations et le consentement",
+              "options": [
+                "Définir une relation saine",
+                "Comprendre le consentement",
+                "Protection et respect"
+              ]
+            },
+            {
+              "id": "prevention_risque",
+              "title": "Prévention des risques",
+              "options": [
+                "Prévention des grossesses non désirées",
+                "Prévention des IST",
+                "Utilisation des préservatifs"
+              ]
+            },
+            {
+              "id": "faq_sexualite",
+              "title": "FAQ sur la sexualité",
+              "options": [
+                "Que faire si je me sens mal à l'aise dans une relation?",
+                "Quels sont les signes d'une relation sexuelle malsaine?",
+                "Comment parler de problèmes dans une relation?"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "changement_climatique",
+          "title": "Changement climatique",
+          "items": [
+            {
+              "id": "impact_sur_sante",
+              "title": "Impact sur la santé reproductive",
+              "options": [
+                "Impacts liés au climat",
+                "Effets sur les femmes et les familles"
+              ]
+            },
+            {
+              "id": "adaptation_femmes_face_changement",
+              "title": "Adaptation des femmes face au changement climatique",
+              "options": ["Résilience communautaire", "Soutien aux femmes"]
+            },
+            {
+              "id": "initiatives_locales",
+              "title": "Initiatives locales",
+              "options": ["Programmes", "Soutien gouvernemental"]
+            }
+          ]
+        },
+        {
+          "id": "services_de_contraception",
+          "title": "Services de contraception",
+          "items": [
+            {
+              "id": "localisation_centre_sante",
+              "title": "Localisation des centres de santé",
+              "options": [
+                "Trouver un centre proche de chez vous",
+                "Services disponibles dans chaque centre",
+                "Horaires d'ouverture"
+              ]
+            },
+            {
+              "id": "acces_contraceptif_gratuit",
+              "title": "Accès aux contraceptifs gratuits",
+              "options": [
+                "Types de contraceptifs gratuits disponibles",
+                "Centres proposant des contraceptifs gratuits",
+                "Programmes de soutien pour l'accès à la contraception"
+              ]
+            },
+            {
+              "id": "planification_familiale",
+              "title": "Planification familiale",
+              "options": [
+                "Comprendre la planification familiale",
+                "Conseils pour gérer les naissances",
+                "Assistance pour les jeunes couples"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
