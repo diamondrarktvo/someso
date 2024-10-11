@@ -54,7 +54,7 @@ const MainMenuScreen = () => {
                 color={"white"}
                 textAlign={"center"}
               >
-                Figma community boolean
+                Choisissez un module d'abord
               </Text>
             </ImageBackground>
           </Box>
@@ -71,12 +71,13 @@ const MainMenuScreen = () => {
               px={"m"}
               py={"s"}
             >
-              <IconHealth width={RFValue(102)} height={RFValue(77)} />
+              <IconHealth width={RFValue(102)} height={RFValue(58)} />
               <Text variant={"veryBigTitle"} my={"s"}>
-                Figma community
+                SMS Ana (Santé reproductive)
               </Text>
               <Text variant={"secondary"} color={"grey"}>
-                Figma community boolean variant ipsum arrange union list
+                Accédez à des conseils pratiques sur la santé reproductive, la
+                contraception, et les services de santé locaux.
               </Text>
             </Box>
           </Pressable>
@@ -93,12 +94,14 @@ const MainMenuScreen = () => {
               px={"m"}
               py={"s"}
             >
-              <IconClimat width={RFValue(102)} height={RFValue(77)} />
+              <IconClimat width={RFValue(102)} height={RFValue(58)} />
               <Text variant={"veryBigTitle"} my={"s"}>
-                Figma community
+                SMS Clim (Changement climatique)
               </Text>
               <Text variant={"secondary"} color={"grey"}>
-                Figma community boolean variant ipsum arrange union list
+                Suivez des cours sur le changement climatique, comprenez ses
+                impacts sur votre environnement, et apprenez comment vous
+                adapter à ces changements.
               </Text>
             </Box>
           </Pressable>
