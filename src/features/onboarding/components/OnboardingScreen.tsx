@@ -65,7 +65,7 @@ export default function OnboardingScreen() {
           </Text>
           <Box justifyContent={"center"} alignItems={"center"}>
             <Button
-              label={"Get Started"}
+              label={"Commencer"}
               loading={loading}
               onPress={() => startApp()}
               paddingHorizontal={"l"}
