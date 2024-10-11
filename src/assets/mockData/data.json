@@ -1,0 +1,119 @@
+{
+  "smsana": {
+    "welcome_message": "Bienvenue sur SMSana",
+    "sections": {
+      "sante_reproductive": {
+        "title": "Santé reproductive",
+        "options": {
+          "contraception_information": {
+            "title": "Information sur la contraception",
+            "items": [
+              "Types de contraception",
+              "Efficacité des méthodes",
+              "Conseils personnalisés"
+            ]
+          },
+          "sante_maternelle": {
+            "title": "Santé maternelle",
+            "items": [
+              "Conseils pour une grossesse saine",
+              "Suivi post-partum",
+              "Soins pour bébé"
+            ]
+          },
+          "ist_et_prevention": {
+            "title": "IST et prévention",
+            "items": [
+              "Comprendre les IST",
+              "Prévention et traitement",
+              "Test et diagnostic"
+            ]
+          },
+          "questions_frequentes": {
+            "title": "Questions fréquentes",
+            "items": [
+              "Comment prévenir les IST?",
+              "Comment se faire tester?",
+              "Que faire en cas d'infection?"
+            ]
+          }
+        }
+      },
+      "droits_des_femmes": {
+        "title": "Droits des femmes",
+        "options": {
+          "droits_en_matiere_de_sante": {
+            "title": "Droits en matière de santé",
+            "items": [
+              "Droits en matière de santé",
+              "Droits sexuels et reproductifs",
+              "Lutte contre la violence basée sur le genre"
+            ]
+          },
+          "droits_sexuels_et_reproductifs": {
+            "title": "Droits sexuels et reproductifs",
+            "items": [
+              "Explication des droits",
+              "Législation nationale et internationale",
+              "Organisations de soutien"
+            ]
+          },
+          "lutte_contre_violence": {
+            "title": "Lutte contre la violence basée sur le genre",
+            "items": [
+              "Reconnaître les signes de violence",
+              "Où trouver de l'aide?",
+              "Signalement des abus",
+              "Soutien psychologique"
+            ]
+          }
+        }
+      },
+      "education_sexuelle": {
+        "title": "Éducation sexuelle",
+        "items": [
+          "Comprendre son corps",
+          "Les relations et le consentement",
+          "Prévention des risques",
+          "FAQ sur la sexualité"
+        ]
+      },
+      "changement_climatique": {
+        "title": "Changement climatique",
+        "options": {
+          "impact_sur_sante": {
+            "title": "Impact sur la santé reproductive",
+            "items": [
+              "Impacts liés au climat",
+              "Effets sur les femmes et les familles"
+            ]
+          },
+          "adaptation_femmes_face_changement": {
+            "title": "Adaptation des femmes face au changement climatique",
+            "items": ["Résilience communautaire", "Soutien aux femmes"]
+          },
+          "initiatives_locales": {
+            "title": "Initiatives locales",
+            "items": ["Programmes", "Soutien gouvernemental"]
+          }
+        }
+      },
+      "services_de_contraception": {
+        "title": "Services de contraception",
+        "items": [
+          "Localisation des centres de santé",
+          "Accès aux contraceptifs gratuits",
+          "Planification familiale"
+        ]
+      },
+      "faq_sexualite": {
+        "title": "FAQ sur la sexualité",
+        "items": [
+          "Que faire si je me sens mal à l'aise dans une relation?",
+          "Quels sont les signes d'une relation sexuelle malsaine?",
+          "Comment parler de problèmes dans une relation?"
+        ]
+      }
+    }
+  }
+}
