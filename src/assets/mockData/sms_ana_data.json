@@ -6,7 +6,7 @@
         "options": {
           "contraception_information": {
             "title": "Information sur la contraception",
-            "items": [
+            "options": [
               "Types de contraception",
               "Efficacité des méthodes",
               "Conseils personnalisés"
@@ -14,7 +14,7 @@
           },
           "sante_maternelle": {
             "title": "Santé maternelle",
-            "items": [
+            "options": [
               "Conseils pour une grossesse saine",
               "Suivi post-partum",
               "Soins pour bébé"
@@ -22,7 +22,7 @@
           },
           "ist_et_prevention": {
             "title": "IST et prévention",
-            "items": [
+            "options": [
               "Comprendre les IST",
               "Prévention et traitement",
               "Test et diagnostic"
@@ -30,7 +30,7 @@
           },
           "questions_frequentes": {
             "title": "Questions fréquentes",
-            "items": [
+            "options": [
               "Comment prévenir les IST?",
               "Comment se faire tester?",
               "Que faire en cas d'infection?"
@@ -43,7 +43,7 @@
         "options": {
           "droits_en_matiere_de_sante": {
             "title": "Droits en matière de santé",
-            "items": [
+            "options": [
               "Droits en matière de santé",
               "Droits sexuels et reproductifs",
               "Lutte contre la violence basée sur le genre"
@@ -51,7 +51,7 @@
           },
           "droits_sexuels_et_reproductifs": {
             "title": "Droits sexuels et reproductifs",
-            "items": [
+            "options": [
               "Explication des droits",
               "Législation nationale et internationale",
               "Organisations de soutien"
@@ -59,7 +59,7 @@
           },
           "lutte_contre_violence": {
             "title": "Lutte contre la violence basée sur le genre",
-            "items": [
+            "options": [
               "Reconnaître les signes de violence",
               "Où trouver de l'aide?",
               "Signalement des abus",
@@ -73,7 +73,7 @@
         "options": {
           "comprendre_son_corps": {
             "title": "Comprendre son corps",
-            "items": [
+            "options": [
               "Anatomie",
               "Changement à la puberté",
               "Cycles menstruels"
@@ -81,7 +81,7 @@
           },
           "relation_consentement": {
             "title": "Les relations et le consentement",
-            "items": [
+            "options": [
               "Définir une relation saine",
               "Comprendre le consentement",
               "Protection et respect"
@@ -89,7 +89,7 @@
           },
           "prevention_risque": {
             "title": "Prévention des risques",
-            "items": [
+            "options": [
               "Prévention des grossesses non désirées",
               "Prévention des IST",
               "Utilisation des préservatifs"
@@ -97,7 +97,7 @@
           },
           "faq_sexualite": {
             "title": "FAQ sur la sexualité",
-            "items": [
+            "options": [
               "Que faire si je me sens mal à l'aise dans une relation?",
               "Quels sont les signes d'une relation sexuelle malsaine?",
               "Comment parler de problèmes dans une relation?"
@@ -110,18 +110,18 @@
         "options": {
           "impact_sur_sante": {
             "title": "Impact sur la santé reproductive",
-            "items": [
+            "options": [
               "Impacts liés au climat",
               "Effets sur les femmes et les familles"
             ]
           },
           "adaptation_femmes_face_changement": {
             "title": "Adaptation des femmes face au changement climatique",
-            "items": ["Résilience communautaire", "Soutien aux femmes"]
+            "options": ["Résilience communautaire", "Soutien aux femmes"]
           },
           "initiatives_locales": {
             "title": "Initiatives locales",
-            "items": ["Programmes", "Soutien gouvernemental"]
+            "options": ["Programmes", "Soutien gouvernemental"]
           }
         }
       },
@@ -130,7 +130,7 @@
         "options": {
           "localisation_centre_sante": {
             "title": "Localisation des centres de santé",
-            "items": [
+            "options": [
               "Trouver un centre proche de chez vous",
               "Services disponibles dans chaque centre",
               "Horaires d'ouverture"
@@ -138,7 +138,7 @@
           },
           "acces_contraceptif_gratuit": {
             "title": "Accès aux contraceptifs gratuits",
-            "items": [
+            "options": [
               "Types de contraceptifs gratuits disponibles",
               "Centres proposant des contraceptifs gratuits",
               "Programmes de soutien pour l'accès à la contraception"
@@ -146,7 +146,7 @@
           },
           "planification_familiale": {
             "title": "Planification familiale",
-            "items": [
+            "options": [
               "Comprendre la planification familiale",
               "Conseils pour gérer les naissances",
               "Assistance pour les jeunes couples"
