@@ -1,10 +1,11 @@
-import { Box, Scaffold, Text } from "_shared";
+import { Box, HeaderNavigation, Scaffold, Text } from "_shared";
+import { heightPercentageToDP } from "_utils";
 
 const LearnScreen = () => {
   return (
     <Scaffold typeOfScreen="stack">
       <Box>
-        <Text>learn screen</Text>
+        <HeaderNavigation title="Community" />
       </Box>
     </Scaffold>
   );

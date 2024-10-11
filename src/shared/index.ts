@@ -10,6 +10,7 @@ import TouchableOpacity from "./components/TouchableOpacity";
 import CheckUserConnected from "./components/CheckUserConnected";
 import Input from "./components/Input";
 import EmptyList from "./components/EmptyList";
+import HeaderNavigation from "./components/HeaderNavigation";
 
 export {
   Icon,
@@ -24,6 +25,7 @@ export {
   CheckUserConnected,
   Input,
   EmptyList,
+  HeaderNavigation,
 };
 
 export {
