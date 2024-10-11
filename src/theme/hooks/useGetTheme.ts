@@ -19,6 +19,9 @@ export const useGetTheme = () => {
     text,
     textPrimaryColor,
     transparent,
+    grey,
+    textPrimaryDark,
+    withoutOverlayDarkBg,
 
     blue,
   } = theme.colors;
@@ -57,6 +60,9 @@ export const useGetTheme = () => {
       text,
       textPrimaryColor,
       transparent,
+      grey,
+      textPrimaryDark,
+      withoutOverlayDarkBg,
     },
     dimensions: {
       height,

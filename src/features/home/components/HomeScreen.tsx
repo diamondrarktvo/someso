@@ -49,7 +49,7 @@ const HomeScreen = () => {
               <Icon
                 name={"notifications"}
                 color={colors.offWhite}
-                size={RFValue(20)}
+                size={sizes.ICON_MEDIUM}
               />
             </Box>
           </Row>

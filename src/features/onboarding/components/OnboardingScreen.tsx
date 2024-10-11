@@ -37,7 +37,7 @@ export default function OnboardingScreen() {
         <WomanSVG width={400} height={400} />
 
         <Box
-          style={onBoardingStyles.boxShadowContainer}
+          style={STYLES.boxShadowContainer}
           borderRadius={"md"}
           backgroundColor={"mainBackground"}
           paddingVertical={"m"}

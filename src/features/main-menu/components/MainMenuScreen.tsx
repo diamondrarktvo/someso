@@ -65,7 +65,7 @@ const MainMenuScreen = () => {
             onPress={() => onHandleChoiceModule(ALL_MODULES_FOR_SOMESO.SMS_ANA)}
           >
             <Box
-              style={mainMenuStyles.boxShadowContainer}
+              style={STYLES.boxShadowContainer}
               backgroundColor={"mainBackground"}
               borderRadius={"md"}
               px={"m"}
@@ -87,7 +87,7 @@ const MainMenuScreen = () => {
             }
           >
             <Box
-              style={mainMenuStyles.boxShadowContainer}
+              style={STYLES.boxShadowContainer}
               backgroundColor={"mainBackground"}
               borderRadius={"md"}
               px={"m"}

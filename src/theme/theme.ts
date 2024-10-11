@@ -7,10 +7,10 @@ const palette = {
   funGreen: "#136C39",
   yellow: "#F7B32B",
   redBordeaux: "#FB222D",
-  white: "rgba(248, 246, 255, 1)",
+  white: "#ffffff",
   grey: "#B8B8B8",
   blue: "#4FC3F7",
-  offWhite: "#F6F6F8",
+  offWhite: "rgba(248, 246, 255, 1)",
   success: "green",
   black: "#0B0B0B",
   offBlack: "#252525",
@@ -27,7 +27,7 @@ const palette = {
 
 const theme = createTheme({
   colors: {
-    mainBackground: palette.white,
+    mainBackground: palette.offWhite,
     mainForeground: palette.black,
     primary: palette.emeraldGreen,
     secondary: palette.blue,
@@ -115,7 +115,7 @@ const theme = createTheme({
       shadowColor: "black",
       shadowOffset: {
         width: 0,
-        height: 1,
+        height: 2,
       },
       shadowOpacity: 0.22,
       shadowRadius: 2.22,
@@ -136,7 +136,7 @@ const smsClimTheme = createTheme({
     white: palette.white,
     black: palette.black,
     secondary: palette.blue,
-    tertiary: palette.funGreen,
+    tertiary: palette.emeraldGreen,
   },
 });
 
