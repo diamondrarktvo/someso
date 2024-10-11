@@ -41,7 +41,7 @@ export default function OnboardingScreen() {
           backgroundColor={"mainBackground"}
           paddingVertical={"m"}
           paddingHorizontal={"m"}
-          flexGrow={0.5}
+          flexGrow={0.6}
           justifyContent={"space-around"}
         >
           <Text
@@ -50,15 +50,18 @@ export default function OnboardingScreen() {
             textAlign={"center"}
             px={"m"}
           >
-            Figma community boolean variant ipsum arrange union!
+            Bienvenue dans SOMESO !
           </Text>
           <Text
             variant={"secondary"}
             color={"grey"}
             textAlign={"center"}
-            px={"l"}
+            px={"m"}
           >
-            Figma community boolean variant ipsum arrange union list
+            Recevez des informations, cours vitales sur la santé reproductive et
+            des changements climatiques, où que vous soyez. SOMESO est là pour
+            vous soutenir dans la gestion de votre santé et vous alerter sur les
+            urgences environnementales.
           </Text>
           <Box justifyContent={"center"} alignItems={"center"}>
             <Button
