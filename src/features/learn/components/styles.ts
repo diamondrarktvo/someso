@@ -16,4 +16,11 @@ export const learnStyles = StyleSheet.create({
     backgroundColor: palette.emeraldGreen,
     borderRadius: RFValue(16),
   },
+  bottomSheetContainer: {
+    paddingHorizontal: RFValue(20),
+  },
+  switch: {
+    width: RFValue(40),
+    height: RFValue(20),
+  },
 });

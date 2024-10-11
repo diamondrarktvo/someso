@@ -5,4 +5,4 @@ export { ProfileScreen } from "./profile";
 export { OnboardingScreen } from "./onboarding";
 
 // STACK SCREEN
-export { LearnScreen } from "./learn";
+export { LearnScreen, ReadingContentScreen } from "./learn";

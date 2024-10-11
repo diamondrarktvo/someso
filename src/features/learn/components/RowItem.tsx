@@ -5,7 +5,8 @@ import IconDone from "_images/svg/icon-done.svg";
 import IconLock from "_images/svg/icon-lock.svg";
 
 import { RFValue } from "_utils";
-import { useGetTheme } from "_theme";
+import { useNavigation } from "@react-navigation/native";
+import { Pressable } from "react-native";
 
 type RowItemProps = {
   alreadyListen: boolean;
@@ -15,7 +16,7 @@ type RowItemProps = {
 };
 
 export const RowItemm = ({ item }: { item: RowItemProps }) => {
-  const { colors, sizes } = useGetTheme();
+  const navigation = useNavigation();
 
   return (
     <Row
@@ -30,17 +31,21 @@ export const RowItemm = ({ item }: { item: RowItemProps }) => {
         <IconPlayer height={RFValue(30)} width={RFValue(30)} />
       )}
       <Box flex={1} ml={"xs"}>
-        <Text variant={"secondaryBold"}>{item.title}</Text>
-        <Text variant={"tertiary"} color={"grey"}>
-          {item.duration}
-        </Text>
+        <Pressable onPress={() => navigation.navigate("reading_screen")}>
+          <Text variant={"secondaryBold"}>{item.title}</Text>
+          <Text variant={"tertiary"} color={"grey"}>
+            {item.duration}
+          </Text>
+        </Pressable>
       </Box>
 
-      {item.alreadyRead ? (
-        <IconDone height={RFValue(24)} width={RFValue(24)} />
-      ) : (
-        <IconLock height={RFValue(24)} width={RFValue(24)} />
-      )}
+      <Pressable onPress={() => navigation.navigate("reading_screen")}>
+        {item.alreadyRead ? (
+          <IconDone height={RFValue(24)} width={RFValue(24)} />
+        ) : (
+          <IconLock height={RFValue(24)} width={RFValue(24)} />
+        )}
+      </Pressable>
     </Row>
   );
 };

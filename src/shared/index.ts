@@ -11,6 +11,7 @@ import CheckUserConnected from "./components/CheckUserConnected";
 import Input from "./components/Input";
 import EmptyList from "./components/EmptyList";
 import HeaderNavigation from "./components/HeaderNavigation";
+import Switch from "./components/Switch";
 
 export {
   Icon,
@@ -26,6 +27,7 @@ export {
   Input,
   EmptyList,
   HeaderNavigation,
+  Switch,
 };
 
 export {

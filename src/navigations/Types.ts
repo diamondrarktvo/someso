@@ -10,6 +10,7 @@ export type StackParamList = {
   main_menu_screen: undefined;
   onboarding_screen: undefined;
   learn_screen: undefined;
+  reading_screen: undefined;
 };
 
 export type TabParamList = {

@@ -12,13 +12,14 @@ import { RFValue } from "_utils";
 import { LinearGradient } from "expo-linear-gradient";
 import IconHome from "_images/svg/home-icon-1.svg";
 import IconShare from "_images/svg/icon-share.svg";
-import { learnStyles } from "./styles";
+
 import { useGetTheme } from "_theme";
 import { useState } from "react";
 import { Pressable } from "react-native";
 import { FlashList, ListRenderItem } from "@shopify/flash-list";
 import { LIST_OF_COURSE } from "../data";
 import { RowItemm } from "./RowItem";
+import { learnStyles } from "./styles";
 
 const LearnScreen = () => {
   const { colors, sizes } = useGetTheme();
