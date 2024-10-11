@@ -26,12 +26,25 @@ const Main = () => {
     }
   }, [moduleChoicedByUser]);
 
+  const statusBarBackgroundColor = useMemo(() => {
+    if (moduleChoicedByUser) {
+      if (moduleChoicedByUser === "sms_ana") {
+        return theme.colors.primary;
+      }
+      if (moduleChoicedByUser === "sms_clim") {
+        return smsClimTheme.colors.primary;
+      }
+    } else {
+      return theme.colors.secondary;
+    }
+  }, [moduleChoicedByUser]);
+
   return (
     <ThemeProvider theme={themeToUsed}>
       <SafeAreaProvider>
         <GestureHandlerRootView style={{ flex: 1 }}>
           <BottomSheetModalProvider>
-            <StatusBar backgroundColor={themeToUsed?.colors.primary} />
+            <StatusBar backgroundColor={statusBarBackgroundColor} />
             <StackNavigation />
           </BottomSheetModalProvider>
         </GestureHandlerRootView>
