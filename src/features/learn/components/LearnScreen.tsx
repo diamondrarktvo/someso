@@ -10,7 +10,8 @@ import {
 } from "_shared";
 import { RFValue } from "_utils";
 import { LinearGradient } from "expo-linear-gradient";
-import HomeIcon from "_images/svg/home-icon-1.svg";
+import IconHome from "_images/svg/home-icon-1.svg";
+import IconShare from "_images/svg/icon-share.svg";
 import { learnStyles } from "./styles";
 import { useGetTheme } from "_theme";
 import { useState } from "react";
@@ -28,7 +29,11 @@ const LearnScreen = () => {
   };
 
   return (
-    <Scaffold typeOfScreen="stack" backgroundColor={"white"}>
+    <Scaffold
+      typeOfScreen="stack"
+      backgroundColor={"white"}
+      paddingBottom={"xs"}
+    >
       <HeaderNavigation title="Community" />
 
       {/**Banniere box */}
@@ -43,7 +48,7 @@ const LearnScreen = () => {
           start={{ x: 0, y: 1 }}
           end={{ x: 1, y: 1 }}
         >
-          <HomeIcon height={RFValue(160)} width={RFValue(200)} />
+          <IconHome height={RFValue(160)} width={RFValue(200)} />
         </LinearGradient>
       </Box>
 
@@ -130,12 +135,29 @@ const LearnScreen = () => {
 
       {/* Footer box */}
       <Row justifyContent={"space-between"}>
-        <Box flex={0.5}>
-          <Icon name={"home"} color={colors.primary} size={sizes.ICON_MEDIUM} />
+        <Box
+          flex={0.15}
+          backgroundColor={"tertiary"}
+          alignItems={"center"}
+          style={{
+            borderRadius: RFValue(8),
+          }}
+          padding={"xxs"}
+          marginRight={"xxs"}
+        >
+          <IconShare height={RFValue(25)} width={RFValue(25)} />
         </Box>
 
-        <Box flex={1}>
-          <Text variant={"primaryBold"} textAlign={"center"}>
+        <Box
+          flex={0.85}
+          backgroundColor={"primary"}
+          justifyContent={"center"}
+          style={{
+            borderRadius: RFValue(8),
+          }}
+          marginLeft={"xxs"}
+        >
+          <Text variant={"primaryBold"} textAlign={"center"} color={"white"}>
             Enroll now
           </Text>
         </Box>
