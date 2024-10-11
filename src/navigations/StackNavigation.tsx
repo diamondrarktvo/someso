@@ -14,7 +14,7 @@ import { functionnalitySelectors } from "_shared";
 import TabNavigation from "./TabNavigation";
 
 //IMPORT SCREEN
-import { MainMenuScreen, OnboardingScreen } from "_features";
+import { LearnScreen, MainMenuScreen, OnboardingScreen } from "_features";
 import { useKnowIfSkipOnboarding } from "_hooks";
 
 const Stack = createStackNavigator<StackParamList>();
@@ -43,8 +43,6 @@ const StackNavigation = () => {
     handleSplashScreen();
   }, [loading]);
 
-  console.log("moduleChoicedByUser", moduleChoicedByUser);
-
   if (loading) {
     return null;
   }
@@ -64,7 +62,10 @@ const StackNavigation = () => {
           screenOptions={stackNavigationConfig.screenOptionsForHiddenHeader}
         >
           {moduleChoicedByUser ? (
-            <Stack.Screen name={"main_tabs"} component={TabNavigation} />
+            <>
+              <Stack.Screen name={"main_tabs"} component={TabNavigation} />
+              <Stack.Screen name={"learn_screen"} component={LearnScreen} />
+            </>
           ) : (
             <>
               {!isMMkVContainValueForSkipOnboarding && (

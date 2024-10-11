@@ -1,4 +1,6 @@
+import { useNavigation } from "@react-navigation/native";
 import { Box, Column, Text } from "_shared";
+import { Pressable } from "react-native";
 
 interface CardItemProps {
   id: number;
@@ -8,6 +10,8 @@ interface CardItemProps {
 }
 
 export const CardItem = ({ item }: { item: CardItemProps }) => {
+  const navigation = useNavigation();
+
   return (
     <Box
       key={item.id}
@@ -22,16 +26,18 @@ export const CardItem = ({ item }: { item: CardItemProps }) => {
       shadowRadius={4}
       elevation={2}
     >
-      <Box alignItems="center" justifyContent="center">
-        {item.svgImage}
-      </Box>
+      <Pressable onPress={() => navigation.navigate("learn_screen")}>
+        <Box alignItems="center" justifyContent="center">
+          {item.svgImage}
+        </Box>
 
-      <Column mt={"m"}>
-        <Text variant={"primaryBold"}>{item.title}</Text>
-        <Text variant={"tertiary"} color={"grey"}>
-          {item.subTitle}
-        </Text>
-      </Column>
+        <Column mt={"m"}>
+          <Text variant={"primaryBold"}>{item.title}</Text>
+          <Text variant={"tertiary"} color={"grey"}>
+            {item.subTitle}
+          </Text>
+        </Column>
+      </Pressable>
     </Box>
   );
 };
