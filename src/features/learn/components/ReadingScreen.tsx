@@ -19,7 +19,6 @@ import { useGetTheme } from "_theme";
 import { useSelector } from "react-redux";
 import { Pressable } from "react-native";
 import { learnStyles } from "./styles";
-import { useSharedValue } from "react-native-reanimated";
 
 const ReadingContentScreen = () => {
   const bottomSheetRef = useRef<BottomSheetModal>(null);
@@ -53,7 +52,6 @@ const ReadingContentScreen = () => {
     return;
   };
 
-  console.log("themeChoiced.value", themeChoiced.value);
   const renderBackdrop = React.useCallback(
     (props: any) => <BottomSheetBackdrop {...props} />,
     [],
