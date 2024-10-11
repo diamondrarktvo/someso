@@ -1,6 +1,5 @@
 {
   "smsana": {
-    "welcome_message": "Bienvenue sur SMSana",
     "sections": {
       "sante_reproductive": {
         "title": "Santé reproductive",
@@ -71,12 +70,40 @@
       },
       "education_sexuelle": {
         "title": "Éducation sexuelle",
-        "items": [
-          "Comprendre son corps",
-          "Les relations et le consentement",
-          "Prévention des risques",
-          "FAQ sur la sexualité"
-        ]
+        "options": {
+          "comprendre_son_corps": {
+            "title": "Comprendre son corps",
+            "items": [
+              "Anatomie",
+              "Changement à la puberté",
+              "Cycles menstruels"
+            ]
+          },
+          "relation_consentement": {
+            "title": "Les relations et le consentement",
+            "items": [
+              "Définir une relation saine",
+              "Comprendre le consentement",
+              "Protection et respect"
+            ]
+          },
+          "prevention_risque": {
+            "title": "Prévention des risques",
+            "items": [
+              "Prévention des grossesses non désirées",
+              "Prévention des IST",
+              "Utilisation des préservatifs"
+            ]
+          },
+          "faq_sexualite": {
+            "title": "FAQ sur la sexualité",
+            "items": [
+              "Que faire si je me sens mal à l'aise dans une relation?",
+              "Quels sont les signes d'une relation sexuelle malsaine?",
+              "Comment parler de problèmes dans une relation?"
+            ]
+          }
+        }
       },
       "changement_climatique": {
         "title": "Changement climatique",
@@ -100,19 +127,32 @@
       },
       "services_de_contraception": {
         "title": "Services de contraception",
-        "items": [
-          "Localisation des centres de santé",
-          "Accès aux contraceptifs gratuits",
-          "Planification familiale"
-        ]
-      },
-      "faq_sexualite": {
-        "title": "FAQ sur la sexualité",
-        "items": [
-          "Que faire si je me sens mal à l'aise dans une relation?",
-          "Quels sont les signes d'une relation sexuelle malsaine?",
-          "Comment parler de problèmes dans une relation?"
-        ]
+        "options": {
+          "localisation_centre_sante": {
+            "title": "Localisation des centres de santé",
+            "items": [
+              "Trouver un centre proche de chez vous",
+              "Services disponibles dans chaque centre",
+              "Horaires d'ouverture"
+            ]
+          },
+          "acces_contraceptif_gratuit": {
+            "title": "Accès aux contraceptifs gratuits",
+            "items": [
+              "Types de contraceptifs gratuits disponibles",
+              "Centres proposant des contraceptifs gratuits",
+              "Programmes de soutien pour l'accès à la contraception"
+            ]
+          },
+          "planification_familiale": {
+            "title": "Planification familiale",
+            "items": [
+              "Comprendre la planification familiale",
+              "Conseils pour gérer les naissances",
+              "Assistance pour les jeunes couples"
+            ]
+          }
+        }
       }
     }
   }
