@@ -265,7 +265,7 @@ const LearnScreen = () => {
           marginLeft={"xxs"}
         >
           <Text variant={"primaryBold"} textAlign={"center"} color={"white"}>
-            Enroll now
+            Commencer
           </Text>
         </Box>
       </Row>
