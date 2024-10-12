@@ -2,8 +2,8 @@ import { useNavigation } from "@react-navigation/native";
 import { Box, Column, Text } from "_shared";
 import { Pressable } from "react-native";
 
-interface CardItemProps {
-  id: number;
+export interface CardItemProps {
+  id: string;
   title: string;
   subTitle: string;
   svgImage: JSX.Element;
@@ -32,7 +32,13 @@ export const CardItem = ({ item }: { item: CardItemProps }) => {
         </Box>
 
         <Column mt={"m"}>
-          <Text variant={"primaryBold"}>{item.title}</Text>
+          <Text
+            variant={"primaryBold"}
+            numberOfLines={1}
+            style={{ width: "100%" }}
+          >
+            {item.title}
+          </Text>
           <Text variant={"tertiary"} color={"grey"}>
             {item.subTitle}
           </Text>

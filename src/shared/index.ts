@@ -1,3 +1,4 @@
+import { ModuleT, SectionT, ItemT } from "./types/types";
 import Icon from "./components/Icon";
 import Box from "./components/Box";
 import Text from "./components/Text";
@@ -44,5 +45,7 @@ export {
   moduleSlice,
   moduleSelectors,
 } from "./slice/moduleSlice";
+
+export { ModuleT, SectionT, ItemT } from "./types/types";
 
 export { STYLES } from "./styles";

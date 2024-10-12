@@ -1,17 +1,44 @@
-import { Scaffold, Row, Text, Box, Icon, Column, EmptyList } from "_shared";
-import { heightPercentageToDP, RFValue, widthPercentageToDP } from "_utils";
+import {
+  Scaffold,
+  Row,
+  Text,
+  Box,
+  Icon,
+  Column,
+  EmptyList,
+  moduleSelectors,
+  SectionT,
+} from "_shared";
+import { heightPercentageToDP, RFValue } from "_utils";
 import { LinearGradient } from "expo-linear-gradient";
 import { homeStyles } from "./styles";
 import { palette, useGetTheme } from "_theme";
 import SearchInput from "./CustomInputSearch";
 import { FlashList, ListRenderItem } from "@shopify/flash-list";
-import { CardItem } from "./CardItem";
-import { HOME_DATA } from "../data";
+import { CardItem, CardItemProps } from "./CardItem";
+import { useSelector } from "react-redux";
+import HomeIcon1 from "_images/svg/home-icon-1.svg";
+import HomeIcon2 from "_images/svg/home-icon-2.svg";
+import HomeIcon3 from "_images/svg/home-icon-3.svg";
+import HomeIcon4 from "_images/svg/home-icon-4.svg";
+import React from "react";
+
+const iconsMap = [HomeIcon1, HomeIcon2, HomeIcon3, HomeIcon4];
 
 const HomeScreen = () => {
   const { colors, sizes } = useGetTheme();
+  const sectionSelectors = useSelector(moduleSelectors.selectSections);
+  const sectionList = sectionSelectors.map((section, index) => ({
+    id: section.id,
+    title: section.title,
+    subTitle: `${section.items?.length ?? 0} cours`,
+    svgImage: React.createElement(iconsMap[index % iconsMap.length], {
+      height: RFValue(110),
+      width: RFValue(110),
+    }),
+  }));
 
-  const renderItem: ListRenderItem<any> = ({ item }) => {
+  const renderItem: ListRenderItem<CardItemProps> = ({ item }) => {
     return <CardItem item={item} />;
   };
 
@@ -72,9 +99,9 @@ const HomeScreen = () => {
             keyExtractor={(item, index) => item.id.toString()}
             numColumns={2}
             estimatedItemSize={200}
-            data={HOME_DATA}
+            data={sectionList}
             renderItem={renderItem}
-            extraData={HOME_DATA}
+            extraData={sectionList}
             showsVerticalScrollIndicator={false}
             ListEmptyComponent={
               <EmptyList textToShow="Pas de cours disponible" />

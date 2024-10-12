@@ -1,6 +1,6 @@
 import { ThemeProvider } from "@shopify/restyle";
 import { StackNavigation } from "_navigations";
-import { functionnalitySelectors, setModuleData } from "_shared";
+import { functionnalitySelectors, ModuleT, setModuleData } from "_shared";
 import { storage } from "_storage";
 import { smsClimTheme, theme } from "_theme";
 import { useEffect, useMemo } from "react";
@@ -11,7 +11,6 @@ import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import ModuleDataJson from "_mock/data.json";
 import { useDispatch } from "react-redux";
-import { ModuleT } from "./shared/types/types";
 
 const Main = () => {
   const dispatch = useDispatch();
