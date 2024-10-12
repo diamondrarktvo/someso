@@ -44,7 +44,9 @@ export const RowItem = ({
         svgImage: index,
       });
     }
-    navigation.navigate("reading_screen");
+    navigation.navigate("reading_screen", {
+      titleOfCourse: item.title,
+    });
   };
 
   return (

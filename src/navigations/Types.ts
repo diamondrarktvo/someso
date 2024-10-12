@@ -13,7 +13,9 @@ export type StackParamList = {
   learn_screen: (SectionT | ItemT) & {
     svgImage: number;
   };
-  reading_screen: undefined;
+  reading_screen: {
+    titleOfCourse: string;
+  };
 };
 
 export type TabParamList = {

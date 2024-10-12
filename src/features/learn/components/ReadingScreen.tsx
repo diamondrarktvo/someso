@@ -19,8 +19,12 @@ import { useGetTheme } from "_theme";
 import { useSelector } from "react-redux";
 import { Pressable } from "react-native";
 import { learnStyles } from "./styles";
+import { useRoute } from "@react-navigation/native";
 
 const ReadingContentScreen = () => {
+  const { titleOfCourse } = useRoute().params as {
+    titleOfCourse: string;
+  };
   const bottomSheetRef = useRef<BottomSheetModal>(null);
   const { colors } = useGetTheme();
   const moduleChoicedByUser = useSelector(functionnalitySelectors.menuChoiced);
@@ -67,7 +71,7 @@ const ReadingContentScreen = () => {
             Chapitre 1
           </Text>
           <Text variant={"titleBold"} fontSize={RFValue(28)} mt={"s"}>
-            Reproduction sexuelle
+            {titleOfCourse}
           </Text>
 
           <Text variant={"primary"} mt={"m"} lineHeight={RFValue(24)}>

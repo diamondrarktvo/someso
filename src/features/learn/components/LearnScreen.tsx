@@ -113,7 +113,7 @@ const LearnScreen = () => {
   }
 
   const renderItem: ListRenderItem<any> = ({ item, index }) => {
-    return <RowItem item={item} index={index} />;
+    return <RowItem item={item} index={dataToShow?.svgImage ?? 0} />;
   };
 
   return (
@@ -146,7 +146,7 @@ const LearnScreen = () => {
           end={{ x: 1, y: 1 }}
         >
           <RenderRandomImageDynamic
-            index={0}
+            index={dataToShow?.svgImage ?? 0}
             height={RFValue(160)}
             width={RFValue(200)}
           />
@@ -234,7 +234,7 @@ const LearnScreen = () => {
           estimatedItemSize={200}
           data={dataToShow ? formatDataToShow(dataToShow) : []}
           renderItem={renderItem}
-          extraData={LIST_OF_COURSE}
+          extraData={dataToShow ? formatDataToShow(dataToShow) : []}
           showsVerticalScrollIndicator={false}
           ListEmptyComponent={<EmptyList textToShow="Donnée pas disponible" />}
         />
