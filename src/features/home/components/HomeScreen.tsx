@@ -8,6 +8,7 @@ import {
   EmptyList,
   moduleSelectors,
   SectionT,
+  functionnalitySelectors,
 } from "_shared";
 import { heightPercentageToDP, RFValue } from "_utils";
 import { LinearGradient } from "expo-linear-gradient";
@@ -37,6 +38,7 @@ const HomeScreen = () => {
       width: RFValue(110),
     }),
   }));
+  const moduleChoicedByUser = useSelector(functionnalitySelectors.menuChoiced);
 
   const renderItem: ListRenderItem<CardItemProps> = ({ item }) => {
     return <CardItem item={item} />;
@@ -62,10 +64,10 @@ const HomeScreen = () => {
                 fontSize={RFValue(28)}
                 color={"offWhite"}
               >
-                Hello,
+                Bonjour,
               </Text>
               <Text variant={"secondary"} color={"offWhite"}>
-                Good Morning
+                Module sms{moduleChoicedByUser === "sms_ana" ? "ana" : "clim"}
               </Text>
             </Box>
             <Box
