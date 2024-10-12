@@ -90,9 +90,9 @@ const HomeScreen = () => {
 
       <Box px={"s"} mt={"m"} flex={1}>
         <Row alignItems={"center"} justifyContent={"space-between"}>
-          <Text variant={"veryBigTitle"}>Figma community</Text>
+          <Text variant={"veryBigTitle"}>Sections</Text>
           <Text variant={"secondaryBold"} color={"primary"}>
-            See all
+            Voir tout
           </Text>
         </Row>
 
