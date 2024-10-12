@@ -101,6 +101,11 @@ const theme = createTheme({
       color: "white",
       borderColor: "black",
     },
+    danger: {
+      backgroundColor: "error",
+      color: "white",
+      borderColor: "error",
+    },
     outlined: {
       backgroundColor: "transparent",
       color: "primary",

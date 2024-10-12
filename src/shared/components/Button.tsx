@@ -15,6 +15,7 @@ import {
 } from "@shopify/restyle";
 
 type ButtonProps = {
+  variant?: keyof Theme["buttonVariants"];
   onPress?: () => void;
   loading?: boolean;
   label: React.ReactNode;
@@ -32,6 +33,7 @@ const BoxButton = createRestyleComponent<BoxButtonProps, Theme>(
 );
 
 const Button: React.FC<ButtonProps> = ({
+  variant,
   onPress,
   loading,
   label,
@@ -45,7 +47,7 @@ const Button: React.FC<ButtonProps> = ({
       disabled={disabled}
     >
       <BoxButton
-        variant="primary"
+        variant={variant ?? "primary"}
         paddingVertical="s"
         paddingHorizontal="s"
         borderRadius={rest.borderRadius ?? "sm"}

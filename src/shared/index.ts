@@ -14,6 +14,7 @@ import EmptyList from "./components/EmptyList";
 import HeaderNavigation from "./components/HeaderNavigation";
 import Switch from "./components/Switch";
 import RenderRandomImageDynamic from "./components/RenderRandomImageDynamic";
+import ItemSeparator from "./components/ItemSeparator";
 
 export {
   Icon,
@@ -31,6 +32,7 @@ export {
   HeaderNavigation,
   Switch,
   RenderRandomImageDynamic,
+  ItemSeparator,
 };
 
 export {
