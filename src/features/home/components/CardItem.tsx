@@ -1,12 +1,12 @@
 import { useNavigation } from "@react-navigation/native";
-import { Box, Column, Text } from "_shared";
+import { Box, Column, ItemT, RenderRandomImageDynamic, Text } from "_shared";
 import { Pressable } from "react-native";
 
 export interface CardItemProps {
   id: string;
   title: string;
-  subTitle: string;
-  svgImage: JSX.Element;
+  items: ItemT[];
+  svgImage: number;
 }
 
 export const CardItem = ({ item }: { item: CardItemProps }) => {
@@ -26,9 +26,9 @@ export const CardItem = ({ item }: { item: CardItemProps }) => {
       shadowRadius={4}
       elevation={2}
     >
-      <Pressable onPress={() => navigation.navigate("learn_screen")}>
+      <Pressable onPress={() => navigation.navigate("learn_screen", item)}>
         <Box alignItems="center" justifyContent="center">
-          {item.svgImage}
+          <RenderRandomImageDynamic index={item.svgImage} />
         </Box>
 
         <Column mt={"m"}>
@@ -40,7 +40,7 @@ export const CardItem = ({ item }: { item: CardItemProps }) => {
             {item.title}
           </Text>
           <Text variant={"tertiary"} color={"grey"}>
-            {item.subTitle}
+            {item.items.length} leçons
           </Text>
         </Column>
       </Pressable>

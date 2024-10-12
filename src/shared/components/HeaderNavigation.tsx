@@ -29,7 +29,7 @@ const HeaderNavigation = ({
     <Row
       justifyContent={"space-between"}
       alignItems={"center"}
-      width={widthPercentageToDP(60)}
+      width={widthPercentageToDP(55)}
     >
       <Pressable onPress={onPress}>
         <Icon

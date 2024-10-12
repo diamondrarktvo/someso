@@ -1,4 +1,5 @@
 import { StackNavigationOptions } from "@react-navigation/stack";
+import { ItemT, SectionT } from "_shared";
 
 export interface StackNavigationConfig {
   screenOptionsForDisplayedHeader: StackNavigationOptions;
@@ -9,7 +10,9 @@ export type StackParamList = {
   main_tabs: undefined;
   main_menu_screen: undefined;
   onboarding_screen: undefined;
-  learn_screen: undefined;
+  learn_screen: (SectionT | ItemT) & {
+    svgImage: number;
+  };
   reading_screen: undefined;
 };
 

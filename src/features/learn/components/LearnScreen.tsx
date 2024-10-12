@@ -3,30 +3,117 @@ import {
   EmptyList,
   HeaderNavigation,
   Icon,
+  ItemT,
+  RenderRandomImageDynamic,
   Row,
   Scaffold,
+  SectionT,
   STYLES,
   Text,
 } from "_shared";
 import { RFValue } from "_utils";
 import { LinearGradient } from "expo-linear-gradient";
-import IconHome from "_images/svg/home-icon-1.svg";
 import IconShare from "_images/svg/icon-share.svg";
 
 import { useGetTheme } from "_theme";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { Pressable } from "react-native";
 import { FlashList, ListRenderItem } from "@shopify/flash-list";
 import { LIST_OF_COURSE } from "../data";
-import { RowItemm } from "./RowItem";
+import { LearnScreenNavigationProp, RowItem } from "./RowItem";
 import { learnStyles } from "./styles";
+import { useNavigation, useRoute } from "@react-navigation/native";
+
+interface SectionCustomT extends SectionT {
+  svgImage: number;
+}
+
+interface ItemCustomT extends ItemT {
+  svgImage: number;
+}
 
 const LearnScreen = () => {
   const { colors, sizes } = useGetTheme();
   const [viewMode, setViewMode] = useState<"list" | "description">("list");
+  const dataToShow = useData<SectionCustomT | ItemCustomT>();
+  const navigation = useNavigation<LearnScreenNavigationProp>();
 
-  const renderItem: ListRenderItem<any> = ({ item }) => {
-    return <RowItemm item={item} />;
+  const labelDynamic = useMemo(() => {
+    if (dataToShow) {
+      if ("items" in dataToShow) {
+        return {
+          typeOfData: "section",
+          navTitle: "Thème",
+          tabTitle: `Leçons (${dataToShow.items?.length})`,
+        };
+      }
+
+      if ("options" in dataToShow) {
+        return {
+          typeOfData: "item",
+          navTitle: "Leçon",
+          tabTitle: `Chapitres (${dataToShow.options?.length})`,
+        };
+      }
+    }
+
+    return {
+      typeOfData: "section",
+      navTitle: "Thème",
+      tabTitle: "Leçons",
+    };
+  }, [dataToShow]);
+
+  function useData<T extends SectionCustomT | ItemCustomT>() {
+    const dataFromParams = useRoute().params as T | null;
+
+    const dataToShow = useMemo(() => {
+      if (!dataFromParams) return null;
+
+      if ("items" in dataFromParams && dataFromParams.items) {
+        return dataFromParams as SectionCustomT;
+      }
+
+      if ("options" in dataFromParams && dataFromParams.options) {
+        return dataFromParams as ItemCustomT;
+      }
+
+      return null;
+    }, [dataFromParams]);
+
+    return dataToShow;
+  }
+
+  function isSectionCustomT(
+    data: SectionCustomT | ItemCustomT,
+  ): data is SectionCustomT {
+    return (data as SectionCustomT).items !== undefined;
+  }
+
+  function formatDataToShow(data: SectionCustomT | ItemCustomT) {
+    if (isSectionCustomT(data)) {
+      return data.items?.map((item) => ({
+        ...item,
+        iconLeft: "listNumber",
+        alreadyRead: Math.random() >= 0.5,
+        duration: "20 min",
+      }));
+    }
+
+    return (
+      data.options?.map((option, index) => ({
+        id: `${data.id}-${index}`,
+        title: option,
+        iconLeft: "player",
+        alreadyListen: Math.random() >= 0.5,
+        alreadyRead: Math.random() >= 0.5,
+        duration: "5 min 20 sec",
+      })) ?? []
+    );
+  }
+
+  const renderItem: ListRenderItem<any> = ({ item, index }) => {
+    return <RowItem item={item} index={index} />;
   };
 
   return (
@@ -35,7 +122,16 @@ const LearnScreen = () => {
       backgroundColor={"white"}
       paddingBottom={"xs"}
     >
-      <HeaderNavigation title="Community" />
+      <HeaderNavigation
+        title={labelDynamic.navTitle}
+        onPressIconLeft={() => {
+          if (labelDynamic.typeOfData === "section") {
+            navigation.popToTop();
+          } else if (labelDynamic.typeOfData === "item") {
+            navigation.goBack();
+          }
+        }}
+      />
 
       {/**Banniere box */}
       <Box my={"s"}>
@@ -49,13 +145,25 @@ const LearnScreen = () => {
           start={{ x: 0, y: 1 }}
           end={{ x: 1, y: 1 }}
         >
-          <IconHome height={RFValue(160)} width={RFValue(200)} />
+          <RenderRandomImageDynamic
+            index={0}
+            height={RFValue(160)}
+            width={RFValue(200)}
+          />
         </LinearGradient>
       </Box>
 
       {/**Title of content box */}
       <Box>
-        <Text variant={"veryBigTitle"}>Figma community</Text>
+        <Text
+          variant={"veryBigTitle"}
+          numberOfLines={1}
+          style={{
+            width: "95%",
+          }}
+        >
+          {dataToShow?.title}
+        </Text>
         <Row>
           <Row alignItems={"center"}>
             <Icon
@@ -71,7 +179,7 @@ const LearnScreen = () => {
           <Row alignItems={"center"} ml={"xs"}>
             <Icon name={"schedule"} color={colors.grey} size={RFValue(14)} />
             <Text variant={"tertiary"} color={"grey"} ml={"s"}>
-              72 heures
+              1 heure
             </Text>
           </Row>
         </Row>
@@ -98,7 +206,7 @@ const LearnScreen = () => {
               textAlign={"center"}
               color={viewMode === "list" ? "white" : "black"}
             >
-              Playlist (22)
+              {labelDynamic.tabTitle}
             </Text>
           </Pressable>
           <Pressable
@@ -124,13 +232,11 @@ const LearnScreen = () => {
         <FlashList
           keyExtractor={(item, index) => item.id.toString()}
           estimatedItemSize={200}
-          data={LIST_OF_COURSE}
+          data={dataToShow ? formatDataToShow(dataToShow) : []}
           renderItem={renderItem}
           extraData={LIST_OF_COURSE}
           showsVerticalScrollIndicator={false}
-          ListEmptyComponent={
-            <EmptyList textToShow="Pas de cours disponible" />
-          }
+          ListEmptyComponent={<EmptyList textToShow="Donnée pas disponible" />}
         />
       </Box>
 

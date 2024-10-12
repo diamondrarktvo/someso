@@ -18,13 +18,7 @@ import SearchInput from "./CustomInputSearch";
 import { FlashList, ListRenderItem } from "@shopify/flash-list";
 import { CardItem, CardItemProps } from "./CardItem";
 import { useSelector } from "react-redux";
-import HomeIcon1 from "_images/svg/home-icon-1.svg";
-import HomeIcon2 from "_images/svg/home-icon-2.svg";
-import HomeIcon3 from "_images/svg/home-icon-3.svg";
-import HomeIcon4 from "_images/svg/home-icon-4.svg";
 import React from "react";
-
-const iconsMap = [HomeIcon1, HomeIcon2, HomeIcon3, HomeIcon4];
 
 const HomeScreen = () => {
   const { colors, sizes } = useGetTheme();
@@ -32,11 +26,8 @@ const HomeScreen = () => {
   const sectionList = sectionSelectors.map((section, index) => ({
     id: section.id,
     title: section.title,
-    subTitle: `${section.items?.length ?? 0} cours`,
-    svgImage: React.createElement(iconsMap[index % iconsMap.length], {
-      height: RFValue(110),
-      width: RFValue(110),
-    }),
+    items: section.items ?? [],
+    svgImage: index,
   }));
   const moduleChoicedByUser = useSelector(functionnalitySelectors.menuChoiced);
 
@@ -90,7 +81,7 @@ const HomeScreen = () => {
 
       <Box px={"s"} mt={"m"} flex={1}>
         <Row alignItems={"center"} justifyContent={"space-between"}>
-          <Text variant={"veryBigTitle"}>Sections</Text>
+          <Text variant={"veryBigTitle"}>Thèmes</Text>
           <Text variant={"secondaryBold"} color={"primary"}>
             Voir tout
           </Text>
@@ -106,7 +97,7 @@ const HomeScreen = () => {
             extraData={sectionList}
             showsVerticalScrollIndicator={false}
             ListEmptyComponent={
-              <EmptyList textToShow="Pas de cours disponible" />
+              <EmptyList textToShow="Donnée pas disponible" />
             }
           />
         </Box>

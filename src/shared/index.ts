@@ -13,6 +13,7 @@ import Input from "./components/Input";
 import EmptyList from "./components/EmptyList";
 import HeaderNavigation from "./components/HeaderNavigation";
 import Switch from "./components/Switch";
+import RenderRandomImageDynamic from "./components/RenderRandomImageDynamic";
 
 export {
   Icon,
@@ -29,6 +30,7 @@ export {
   EmptyList,
   HeaderNavigation,
   Switch,
+  RenderRandomImageDynamic,
 };
 
 export {
