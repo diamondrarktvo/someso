@@ -1,17 +1,22 @@
 import { ThemeProvider } from "@shopify/restyle";
 import { StackNavigation } from "_navigations";
-import { functionnalitySelectors } from "_shared";
+import { functionnalitySelectors, setModuleData } from "_shared";
 import { storage } from "_storage";
 import { smsClimTheme, theme } from "_theme";
-import { useMemo } from "react";
+import { useEffect, useMemo } from "react";
 import { StatusBar } from "react-native";
 import { useSelector } from "react-redux";
 import { BottomSheetModalProvider } from "@gorhom/bottom-sheet";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { SafeAreaProvider } from "react-native-safe-area-context";
+import ModuleDataJson from "_mock/data.json";
+import { useDispatch } from "react-redux";
+import { ModuleT } from "./shared/types/types";
 
 const Main = () => {
+  const dispatch = useDispatch();
   const moduleChoicedByUser = useSelector(functionnalitySelectors.menuChoiced);
+  const moduleData = ModuleDataJson.modules;
 
   const themeToUsed = useMemo(() => {
     if (moduleChoicedByUser) {
@@ -38,6 +43,17 @@ const Main = () => {
       return theme.colors.secondary;
     }
   }, [moduleChoicedByUser]);
+
+  useEffect(() => {
+    if (moduleChoicedByUser) {
+      const selectedModule = moduleData.find(
+        (module: ModuleT) => module.id === moduleChoicedByUser,
+      );
+      if (selectedModule) {
+        dispatch(setModuleData(selectedModule));
+      }
+    }
+  }, [moduleChoicedByUser, dispatch, moduleData]);
 
   return (
     <ThemeProvider theme={themeToUsed}>

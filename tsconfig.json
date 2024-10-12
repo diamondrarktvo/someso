@@ -8,6 +8,7 @@
      "paths": {
        "_shared": ["src/shared"],
        "_images": ["src/assets/images"],
+        "_mock": ["src/assets/mockData"],
        "_config": ["src/config"],
        "_features": ["src/features"],
        "_theme": ["src/theme"],

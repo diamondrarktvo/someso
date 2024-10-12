@@ -26,6 +26,7 @@ const Stack = createStackNavigator<StackParamList>();
 
 const StackNavigation = () => {
   const moduleChoicedByUser = useSelector(functionnalitySelectors.menuChoiced);
+
   const isMMkVContainValueForSkipOnboarding = useSelector(
     functionnalitySelectors.isUserAlreadyShowOnboardingScreen,
   );

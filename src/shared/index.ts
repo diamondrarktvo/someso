@@ -38,4 +38,11 @@ export {
   functionnalitySlice,
 } from "./slice/functionnalitySlice";
 
+export {
+  setModuleData,
+  removeModuleData,
+  moduleSlice,
+  moduleSelectors,
+} from "./slice/moduleSlice";
+
 export { STYLES } from "./styles";

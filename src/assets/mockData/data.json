@@ -1,7 +1,7 @@
 {
   "modules": [
     {
-      "id": "smsclim",
+      "id": "sms_clim",
       "sections": [
         {
           "id": "education_sur_le_changement_climatique",
@@ -149,7 +149,7 @@
       ]
     },
     {
-      "id": "smsana",
+      "id": "sms_ana",
       "sections": [
         {
           "id": "sante_reproductive",

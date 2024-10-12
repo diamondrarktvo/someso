@@ -6,6 +6,7 @@
       {
         "root": ["./src"],
         "alias": [
+          { "_mock": "./src/assets/mockData" },
           { "_images": "./src/assets/images" },
           { "_features": "./src/features" },
           { "_config": "./src/config" },

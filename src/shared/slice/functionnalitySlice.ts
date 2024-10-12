@@ -1,9 +1,10 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { storage, storeDataToMMKV } from "_storage";
+import { ModuleSomesoTypes } from "_utils";
 
 export interface functionnalityStateType {
   isUserAlreadyShowOnboardingScreen: boolean;
-  menuChoiced: "sms_ana" | "sms_clim" | "";
+  menuChoiced: ModuleSomesoTypes | "";
 }
 
 const initialState: functionnalityStateType = {
