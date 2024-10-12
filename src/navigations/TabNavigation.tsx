@@ -6,7 +6,7 @@ import { TabParamList } from "./Types";
 import { Icon, Text } from "_shared";
 import { useTheme } from "@shopify/restyle";
 import { Theme } from "_theme";
-import { HomeScreen, ProfileScreen } from "_features";
+import { HomeScreen, SettingScreen } from "_features";
 
 const Tab = createBottomTabNavigator<TabParamList>();
 
@@ -27,10 +27,10 @@ const TABROUTES: TabRouteTypes[] = [
     icon: "home",
   },
   {
-    name: "profile_screen",
-    component: ProfileScreen,
-    tabLabel: "Profile",
-    icon: "person-outline",
+    name: "setting_screen",
+    component: SettingScreen,
+    tabLabel: "Paramètre",
+    icon: "settings",
   },
 ];
 

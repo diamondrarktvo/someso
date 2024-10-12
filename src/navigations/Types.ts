@@ -20,7 +20,7 @@ export type StackParamList = {
 
 export type TabParamList = {
   home_screen: undefined;
-  profile_screen: undefined;
+  setting_screen: undefined;
 };
 
 export type TopParamList = {
