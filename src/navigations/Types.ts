@@ -21,6 +21,7 @@ export type StackParamList = {
 export type TabParamList = {
   home_screen: undefined;
   setting_screen: undefined;
+  emergency_screen: undefined;
 };
 
 export type TopParamList = {
