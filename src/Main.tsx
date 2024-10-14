@@ -17,8 +17,6 @@ import Toast, {
   SuccessToast,
   ToastProps,
 } from "react-native-toast-message";
-import { RFValue } from "_utils";
-import { Platform } from "react-native";
 
 const Main = () => {
   const dispatch = useDispatch();

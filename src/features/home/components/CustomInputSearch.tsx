@@ -1,5 +1,5 @@
-import { Icon, Row } from "_shared";
-import { RFValue, widthPercentageToDP } from "_utils";
+import { Row } from "_shared";
+import { RFValue } from "_utils";
 import { TextInput } from "react-native";
 import IconSearch from "_images/svg/icon-search.svg";
 import IconFilter from "_images/svg/icon-filter.svg";
