@@ -15,6 +15,8 @@ import HeaderNavigation from "./components/HeaderNavigation";
 import Switch from "./components/Switch";
 import RenderRandomImageDynamic from "./components/RenderRandomImageDynamic";
 import ItemSeparator from "./components/ItemSeparator";
+import InputWithIcon from "./components/InputWithIcon";
+import Loader from "./components/Loader";
 
 export {
   Icon,
@@ -33,6 +35,8 @@ export {
   Switch,
   RenderRandomImageDynamic,
   ItemSeparator,
+  InputWithIcon,
+  Loader,
 };
 
 export {

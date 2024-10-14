@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 import * as Location from "expo-location";
+import { PositionMapT } from "../features/emergency-service/types";
 
 export const useGetLocation = () => {
   //all states
-  const [position, setPosition] = useState<{
-    longitude: number;
-    latitude: number;
-  }>({ longitude: 0.0, latitude: 0.0 });
+  const [position, setPosition] = useState<
+    Omit<PositionMapT, "latitudeDelta" | "longitudeDelta">
+  >({ longitude: 0.0, latitude: 0.0 });
   const [errorMsgLocation, setErrorMsgLocation] = useState<string>("");
 
   //all effects

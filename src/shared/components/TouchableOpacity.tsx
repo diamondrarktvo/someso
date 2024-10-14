@@ -3,11 +3,13 @@ import {
   TouchableOpacity as RNTouchableOpacity,
   TouchableOpacityProps,
 } from "react-native";
+import { BoxProps } from "./Box";
 
 type Props = {
   children: React.ReactNode;
   onPress?: () => void;
-} & TouchableOpacityProps;
+} & TouchableOpacityProps &
+  BoxProps;
 
 const TouchableOpacity = ({ children, onPress }: Props) => {
   return (
