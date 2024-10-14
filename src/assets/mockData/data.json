@@ -108,7 +108,7 @@
         {
           "id": "previsions_meteorologiques_locales",
           "title": "Prévisions météorologiques locales",
-          "items": [
+          "options": [
             "Météo d'aujourd'hui",
             "Météo pour la semaine",
             "Autres prévisions"

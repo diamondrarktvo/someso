@@ -25,6 +25,7 @@ const HomeScreen = () => {
     id: section.id,
     title: section.title,
     items: section.items ?? [],
+    options: section.options ?? [],
     svgImage: index,
   }));
   const moduleChoicedByUser = useSelector(functionnalitySelectors.menuChoiced);

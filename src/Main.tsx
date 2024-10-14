@@ -22,6 +22,7 @@ const Main = () => {
   const dispatch = useDispatch();
   const moduleChoicedByUser = useSelector(functionnalitySelectors.menuChoiced);
   const moduleData = ModuleDataJson.modules;
+
   const toastConfig = {
     success: (props: ToastProps) => (
       <SuccessToast

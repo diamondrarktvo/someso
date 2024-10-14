@@ -39,15 +39,26 @@ const LearnScreen = () => {
 
   const labelDynamic = useMemo(() => {
     if (dataToShow) {
-      if ("items" in dataToShow) {
+      if (
+        "items" in dataToShow &&
+        dataToShow.items &&
+        Array.isArray(dataToShow.items) &&
+        dataToShow.items.length > 0
+      ) {
         return {
           typeOfData: "section",
           navTitle: "Thème",
-          tabTitle: `Leçons (${dataToShow.items?.length})`,
+          tabTitle: `Leçons (${
+            Array.isArray(dataToShow.items) ? dataToShow.items.length : 0
+          })`,
         };
       }
 
-      if ("options" in dataToShow) {
+      if (
+        "options" in dataToShow &&
+        dataToShow.options &&
+        dataToShow.options.length > 0
+      ) {
         return {
           typeOfData: "item",
           navTitle: "Leçon",
@@ -69,11 +80,19 @@ const LearnScreen = () => {
     const dataToShow = useMemo(() => {
       if (!dataFromParams) return null;
 
-      if ("items" in dataFromParams && dataFromParams.items) {
+      if (
+        "items" in dataFromParams &&
+        dataFromParams.items &&
+        dataFromParams.items.length > 0
+      ) {
         return dataFromParams as SectionCustomT;
       }
 
-      if ("options" in dataFromParams && dataFromParams.options) {
+      if (
+        "options" in dataFromParams &&
+        dataFromParams.options &&
+        dataFromParams.options.length > 0
+      ) {
         return dataFromParams as ItemCustomT;
       }
 
@@ -86,7 +105,11 @@ const LearnScreen = () => {
   function isSectionCustomT(
     data: SectionCustomT | ItemCustomT,
   ): data is SectionCustomT {
-    return (data as SectionCustomT).items !== undefined;
+    return (
+      (data as SectionCustomT).items !== undefined &&
+      ((data as SectionCustomT).options === undefined ||
+        (data as SectionCustomT).options?.length === 0)
+    );
   }
 
   function formatDataToShow(data: SectionCustomT | ItemCustomT) {

@@ -6,6 +6,7 @@ export interface CardItemProps {
   id: string;
   title: string;
   items: ItemT[];
+  options?: string[];
   svgImage: number;
 }
 
@@ -40,7 +41,10 @@ export const CardItem = ({ item }: { item: CardItemProps }) => {
             {item.title}
           </Text>
           <Text variant={"tertiary"} color={"grey"}>
-            {item.items.length} leçons
+            {item.options && item.options?.length > 0
+              ? item.options?.length
+              : item.items.length}{" "}
+            leçons
           </Text>
         </Column>
       </Pressable>
