@@ -146,8 +146,8 @@ const LearnScreen = () => {
         >
           <RenderRandomImageDynamic
             index={dataToShow?.svgImage ?? 0}
-            height={RFValue(160)}
-            width={RFValue(200)}
+            height={RFValue(120)}
+            width={RFValue(150)}
           />
         </LinearGradient>
       </Box>
