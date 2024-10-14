@@ -2,7 +2,6 @@ import { Provider } from "react-redux";
 import { store } from "_store";
 import { LogBox } from "react-native";
 import Main from "./Main";
-import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 export default function App() {
   // FIXME: Remove this when the issue is fixed

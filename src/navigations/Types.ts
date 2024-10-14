@@ -1,3 +1,4 @@
+import { NavigatorScreenParams } from "@react-navigation/native";
 import { StackNavigationOptions } from "@react-navigation/stack";
 import { ItemT, SectionT } from "_shared";
 
@@ -7,7 +8,7 @@ export interface StackNavigationConfig {
 }
 
 export type StackParamList = {
-  main_tabs: undefined;
+  main_tabs: NavigatorScreenParams<TabParamList>;
   main_menu_screen: undefined;
   onboarding_screen: undefined;
   learn_screen: (SectionT | ItemT) & {

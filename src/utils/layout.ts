@@ -1,4 +1,4 @@
-import { Dimensions, PixelRatio, Platform, StatusBar } from "react-native";
+import { PixelRatio, Platform, StatusBar } from "react-native";
 import moment from "moment";
 import { isIphoneX } from "react-native-iphone-x-helper";
 import Toast from "react-native-toast-message";

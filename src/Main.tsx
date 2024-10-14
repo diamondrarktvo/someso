@@ -11,11 +11,47 @@ import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import ModuleDataJson from "_mock/data.json";
 import { useDispatch } from "react-redux";
+import Toast, {
+  ErrorToast,
+  InfoToast,
+  SuccessToast,
+  ToastProps,
+} from "react-native-toast-message";
+import { RFValue } from "_utils";
+import { Platform } from "react-native";
 
 const Main = () => {
   const dispatch = useDispatch();
   const moduleChoicedByUser = useSelector(functionnalitySelectors.menuChoiced);
   const moduleData = ModuleDataJson.modules;
+  const toastConfig = {
+    success: (props: ToastProps) => (
+      <SuccessToast
+        {...props}
+        style={{
+          borderLeftColor: theme.colors.success,
+        }}
+      />
+    ),
+    error: (props: ToastProps) => (
+      <ErrorToast
+        {...props}
+        text2NumberOfLines={2}
+        style={{
+          borderLeftColor: theme.colors.error,
+        }}
+      />
+    ),
+    info: (props: ToastProps) => (
+      <InfoToast
+        {...props}
+        text2NumberOfLines={2}
+        style={{
+          borderLeftColor: theme.colors.primary,
+        }}
+      />
+    ),
+  };
 
   const themeToUsed = useMemo(() => {
     if (moduleChoicedByUser) {
@@ -61,6 +97,7 @@ const Main = () => {
           <BottomSheetModalProvider>
             <StatusBar backgroundColor={statusBarBackgroundColor} />
             <StackNavigation />
+            <Toast config={toastConfig} />
           </BottomSheetModalProvider>
         </GestureHandlerRootView>
       </SafeAreaProvider>

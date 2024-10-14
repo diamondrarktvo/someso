@@ -6,22 +6,24 @@ import MapView, {
   PROVIDER_GOOGLE,
 } from "react-native-maps";
 import { useGetLocation } from "_hooks";
-import { Box, InputWithIcon, Loader } from "_shared";
+import { Box, Button, InputWithIcon, Loader } from "_shared";
 import { mapStyles } from "./styles";
 import { StyleSheet } from "react-native";
 import { heightPercentageToDP, RFValue, showToast } from "_utils";
 import { useGetTheme } from "_theme";
 import { transformNameToGeocode } from "../utils";
 import { PositionMapI } from "../types";
-import { useRoute } from "@react-navigation/native";
+import { useNavigation, useRoute } from "@react-navigation/native";
 import { ImageEmergency } from "./ImageEmergency";
 
 const MapScreen = () => {
   const { position, errorMsgLocation } = useGetLocation();
+  const navigation = useNavigation();
   const { colors, sizes } = useGetTheme();
   const mapRef = useRef<MapView>(null);
   const [cityName, setCityName] = useState("");
   const [isLoadingSearch, setIsLoadingSearch] = useState(false);
+  const [isLoadingSend, setIsLoadingSend] = useState(false);
   const { icon_emergency } = useRoute().params as { icon_emergency: string };
 
   const [marker, setMarker] = useState<
@@ -97,6 +99,21 @@ const MapScreen = () => {
     setMarker(coordinate);
   }, []);
 
+  const onSendHelp = () => {
+    setIsLoadingSend(true);
+    setTimeout(() => {
+      showToast(
+        "success",
+        "Demande d'aide envoyée",
+        "Votre demande d'aide a bien été envoyée",
+      );
+      setIsLoadingSend(false);
+      navigation.navigate("main_tabs", {
+        screen: "emergency_screen",
+      });
+    }, 3000);
+  };
+
   return (
     <Loader isLoading={isLoadingSearch} isOverlay={false}>
       <Box
@@ -154,7 +171,7 @@ const MapScreen = () => {
             <Marker
               key={`custom_marker`}
               coordinate={marker}
-              title={"Incident ici"}
+              title={"Urgence ici"}
               draggable
               onDragEnd={handleMarkerDragEnd}
             >
@@ -167,6 +184,26 @@ const MapScreen = () => {
           )}
         </MapView>
       </Box>
+
+      {marker.longitude !== 0.0 &&
+        marker.latitude !== 0.0 &&
+        icon_emergency && (
+          <Box
+            position={"absolute"}
+            zIndex={2}
+            width={"90%"}
+            mx={"s"}
+            bottom={heightPercentageToDP(2)}
+          >
+            <Button
+              loading={isLoadingSend}
+              label={"Demander de l'aide"}
+              onPress={() => onSendHelp()}
+              paddingHorizontal={"l"}
+              height={RFValue(45)}
+            />
+          </Box>
+        )}
     </Loader>
   );
 };
