@@ -160,28 +160,31 @@ const MapScreen = () => {
           followsUserLocation={true}
           onPress={handleMapPress}
         >
-          {position && (
+          {position.latitude && position.longitude ? (
             <Marker
               key={`user_${position.longitude}_${position.latitude}`}
               coordinate={position}
               title={"Vous êtes ici"}
             />
-          )}
-          {marker && icon_emergency && (
-            <Marker
-              key={`custom_marker`}
-              coordinate={marker}
-              title={"Urgence ici"}
-              draggable
-              onDragEnd={handleMarkerDragEnd}
-            >
-              <ImageEmergency
-                name={icon_emergency}
-                height={RFValue(20)}
-                width={RFValue(20)}
-              />
-            </Marker>
-          )}
+          ) : null}
+
+          {marker.longitude !== 0.0 &&
+            marker.latitude !== 0.0 &&
+            icon_emergency && (
+              <Marker
+                key={`custom_marker`}
+                coordinate={marker}
+                title={"Urgence ici"}
+                draggable
+                onDragEnd={handleMarkerDragEnd}
+              >
+                <ImageEmergency
+                  name={icon_emergency}
+                  height={RFValue(20)}
+                  width={RFValue(20)}
+                />
+              </Marker>
+            )}
         </MapView>
       </Box>
 
