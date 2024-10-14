@@ -1,4 +1,8 @@
-export { HTTP_STATUS_CODES, ALL_MODULES_FOR_SOMESO } from "./Constantes";
+export {
+  HTTP_STATUS_CODES,
+  ALL_MODULES_FOR_SOMESO,
+  SCREEN_SIZE,
+} from "./Constantes";
 
 export { SpeakText } from "./Speak";
 

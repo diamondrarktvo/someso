@@ -17,6 +17,7 @@ import TabNavigation from "./TabNavigation";
 import {
   LearnScreen,
   MainMenuScreen,
+  MapScreen,
   OnboardingScreen,
   ReadingContentScreen,
 } from "_features";
@@ -75,6 +76,7 @@ const StackNavigation = () => {
                 name={"reading_screen"}
                 component={ReadingContentScreen}
               />
+              <Stack.Screen name={"map_screen"} component={MapScreen} />
             </>
           ) : (
             <>

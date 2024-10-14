@@ -4,9 +4,11 @@ import { Box, Button, EmptyList, Image, Row, Scaffold, Text } from "_shared";
 import { RFValue } from "_utils";
 import { ALL_EMERGENCY_SERVICES } from "../data";
 import { CardEmergency, CardEmergencyProps } from "./CardEmergency";
+import { useNavigation } from "@react-navigation/native";
 
 const EmergencyServiceScreen = () => {
   const [emergencySelected, setEmergencySelected] = useState<number[]>([]);
+  const navigation = useNavigation();
 
   const handlePress = (idEmergency: number) => {
     setEmergencySelected((prevSelected) =>
@@ -66,7 +68,7 @@ const EmergencyServiceScreen = () => {
           <Button
             label={"Suivant"}
             onPress={() => {
-              // Action quand on clique sur "Suivant"
+              navigation.navigate("map_screen");
             }}
             paddingHorizontal={"l"}
             height={RFValue(45)}

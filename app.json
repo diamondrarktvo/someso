@@ -13,16 +13,24 @@
     },
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.diamondrarktvo.someso"
+      "bundleIdentifier": "com.diamondrarktvo.someso",
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyCfeV-dI5JYOl39mJDqsyL8xtRykQHU29I"
+        }
+      }
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "permissions": [
-        "android.permission.RECORD_AUDIO"
-      ],
+      "permissions": ["android.permission.RECORD_AUDIO"],
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyCfeV-dI5JYOl39mJDqsyL8xtRykQHU29I"
+        }
+      },
       "package": "com.diamondrarktvo.someso"
     },
     "web": {
@@ -36,9 +44,7 @@
           "speechRecognitionPermission": "Allow Voice to Text Tutorial to securely recognize user speech"
         }
       ],
-      [
-        "expo-localization"
-      ]
+      ["expo-localization"]
     ],
     "extra": {
       "eas": {
