@@ -19,7 +19,6 @@ import { useGetTheme } from "_theme";
 import { useMemo, useState } from "react";
 import { Pressable } from "react-native";
 import { FlashList, ListRenderItem } from "@shopify/flash-list";
-import { LIST_OF_COURSE } from "../data";
 import { LearnScreenNavigationProp, RowItem } from "./RowItem";
 import { learnStyles } from "./styles";
 import { useNavigation, useRoute } from "@react-navigation/native";

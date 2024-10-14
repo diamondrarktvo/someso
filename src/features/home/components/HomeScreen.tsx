@@ -4,10 +4,8 @@ import {
   Text,
   Box,
   Icon,
-  Column,
   EmptyList,
   moduleSelectors,
-  SectionT,
   functionnalitySelectors,
 } from "_shared";
 import { heightPercentageToDP, RFValue } from "_utils";
