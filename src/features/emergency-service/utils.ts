@@ -1,8 +1,8 @@
 import config from "_config";
-import { PositionMapT } from "./types";
+import { PositionMapI } from "./types";
 
 interface ResponseTransformeNameToGeocode
-  extends Omit<PositionMapT, "latitudeDelta" | "longitudeDelta"> {
+  extends Omit<PositionMapI, "latitudeDelta" | "longitudeDelta"> {
   longitude: number;
   latitude: number;
 }

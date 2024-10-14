@@ -1,13 +1,19 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
-import MapView, { Marker, PROVIDER_GOOGLE } from "react-native-maps";
+import MapView, {
+  MapPressEvent,
+  Marker,
+  MarkerDragStartEndEvent,
+  PROVIDER_GOOGLE,
+} from "react-native-maps";
 import { useGetLocation } from "_hooks";
 import { Box, InputWithIcon, Loader } from "_shared";
 import { mapStyles } from "./styles";
 import { StyleSheet } from "react-native";
-import { heightPercentageToDP, showToast } from "_utils";
-import { useFocusEffect } from "@react-navigation/native";
+import { heightPercentageToDP, RFValue, showToast } from "_utils";
 import { useGetTheme } from "_theme";
 import { transformNameToGeocode } from "../utils";
+import { PositionMapI } from "../types";
+import Fire from "_images/svg/fire.svg";
 
 const MapScreen = () => {
   const { position, errorMsgLocation } = useGetLocation();
@@ -15,6 +21,13 @@ const MapScreen = () => {
   const mapRef = useRef<MapView>(null);
   const [cityName, setCityName] = useState("");
   const [isLoadingSearch, setIsLoadingSearch] = useState(false);
+
+  const [marker, setMarker] = useState<
+    Omit<PositionMapI, "latitudeDelta" | "longitudeDelta">
+  >({
+    longitude: 0.0,
+    latitude: 0.0,
+  });
 
   if (errorMsgLocation) {
     showToast("error", "Erreur au niveau de la localisation", errorMsgLocation);
@@ -39,7 +52,7 @@ const MapScreen = () => {
     if (position) {
       animateToCurrentUserPosition();
     }
-  }, [mapRef.current, position]);
+  }, [position, animateToCurrentUserPosition]);
 
   const handleSearch = useCallback(() => {
     if (cityName !== "") {
@@ -71,6 +84,16 @@ const MapScreen = () => {
         });
     }
   }, [cityName]);
+
+  const handleMapPress = useCallback((e: MapPressEvent) => {
+    const coordinate = e.nativeEvent.coordinate;
+    setMarker(coordinate);
+  }, []);
+
+  const handleMarkerDragEnd = useCallback((e: MarkerDragStartEndEvent) => {
+    const coordinate = e.nativeEvent.coordinate;
+    setMarker(coordinate);
+  }, []);
 
   return (
     <Loader isLoading={isLoadingSearch} isOverlay={false}>
@@ -116,13 +139,25 @@ const MapScreen = () => {
           }}
           showsUserLocation={true}
           followsUserLocation={true}
+          onPress={handleMapPress}
         >
           {position && (
             <Marker
-              key={`key_${position.longitude}_${position.latitude}`}
+              key={`user_${position.longitude}_${position.latitude}`}
               coordinate={position}
               title={"Vous êtes ici"}
             />
+          )}
+          {marker && (
+            <Marker
+              key={`custom_marker`}
+              coordinate={marker}
+              title={"Incident ici"}
+              draggable
+              onDragEnd={handleMarkerDragEnd}
+            >
+              <Fire width={RFValue(24)} height={RFValue(20)} />
+            </Marker>
           )}
         </MapView>
       </Box>
