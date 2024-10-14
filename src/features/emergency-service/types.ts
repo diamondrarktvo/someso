@@ -12,4 +12,5 @@ export interface EmergencsI {
   title: string;
   module: ModuleSomesoTypes;
   description: string;
+  icon: string;
 }

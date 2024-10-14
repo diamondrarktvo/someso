@@ -1,11 +1,14 @@
-import { Box, Image, Text } from "_shared";
-import { RFValue } from "_utils";
+import { Box, Text } from "_shared";
+import { ModuleSomesoTypes } from "_utils";
 import { Pressable } from "react-native";
+import { ImageEmergency } from "./ImageEmergency";
 
 export interface CardEmergencyProps {
   id: number;
   title: string;
-  image: any;
+  module: ModuleSomesoTypes;
+  description: string;
+  icon: string;
 }
 
 interface CardEmergencyComponentProps {
@@ -37,10 +40,7 @@ export const CardEmergency = ({
       elevation={2}
     >
       <Pressable onPress={() => handlePress(item.id)}>
-        <Image
-          source={item.image}
-          style={{ width: RFValue(60), height: RFValue(60) }}
-        />
+        <ImageEmergency name={item.icon} />
         <Text variant={"secondaryBold"} textAlign={"center"} mt={"s"}>
           {item.title}
         </Text>

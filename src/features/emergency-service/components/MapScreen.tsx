@@ -13,7 +13,6 @@ import { heightPercentageToDP, RFValue, showToast } from "_utils";
 import { useGetTheme } from "_theme";
 import { transformNameToGeocode } from "../utils";
 import { PositionMapI } from "../types";
-import Fire from "_images/svg/fire.svg";
 
 const MapScreen = () => {
   const { position, errorMsgLocation } = useGetLocation();
@@ -155,9 +154,7 @@ const MapScreen = () => {
               title={"Incident ici"}
               draggable
               onDragEnd={handleMarkerDragEnd}
-            >
-              <Fire width={RFValue(24)} height={RFValue(20)} />
-            </Marker>
+            ></Marker>
           )}
         </MapView>
       </Box>
