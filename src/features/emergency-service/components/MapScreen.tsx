@@ -13,6 +13,8 @@ import { heightPercentageToDP, RFValue, showToast } from "_utils";
 import { useGetTheme } from "_theme";
 import { transformNameToGeocode } from "../utils";
 import { PositionMapI } from "../types";
+import { useRoute } from "@react-navigation/native";
+import { ImageEmergency } from "./ImageEmergency";
 
 const MapScreen = () => {
   const { position, errorMsgLocation } = useGetLocation();
@@ -20,6 +22,7 @@ const MapScreen = () => {
   const mapRef = useRef<MapView>(null);
   const [cityName, setCityName] = useState("");
   const [isLoadingSearch, setIsLoadingSearch] = useState(false);
+  const { icon_emergency } = useRoute().params as { icon_emergency: string };
 
   const [marker, setMarker] = useState<
     Omit<PositionMapI, "latitudeDelta" | "longitudeDelta">
@@ -147,14 +150,20 @@ const MapScreen = () => {
               title={"Vous êtes ici"}
             />
           )}
-          {marker && (
+          {marker && icon_emergency && (
             <Marker
               key={`custom_marker`}
               coordinate={marker}
               title={"Incident ici"}
               draggable
               onDragEnd={handleMarkerDragEnd}
-            ></Marker>
+            >
+              <ImageEmergency
+                name={icon_emergency}
+                height={RFValue(20)}
+                width={RFValue(20)}
+              />
+            </Marker>
           )}
         </MapView>
       </Box>

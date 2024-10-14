@@ -13,8 +13,11 @@ export interface CardEmergencyProps {
 
 interface CardEmergencyComponentProps {
   item: CardEmergencyProps;
-  emergencySelected: number[];
-  handlePress: (id: number) => void;
+  emergencySelected: {
+    id: number;
+    icon_emergency: string;
+  } | null;
+  handlePress: (id: number, icon_emergency: string) => void;
 }
 
 export const CardEmergency = ({
@@ -30,8 +33,14 @@ export const CardEmergency = ({
       padding="m"
       margin="xs"
       borderRadius="md"
-      borderWidth={emergencySelected.includes(item.id) ? 2 : 0}
-      borderColor={emergencySelected.includes(item.id) ? "error" : "white"}
+      borderWidth={
+        emergencySelected && emergencySelected.id === item.id ? 2 : 0
+      }
+      borderColor={
+        emergencySelected && emergencySelected.id === item.id
+          ? "error"
+          : "white"
+      }
       backgroundColor="white"
       shadowColor="black"
       shadowOffset={{ width: 0, height: 2 }}
@@ -39,7 +48,7 @@ export const CardEmergency = ({
       shadowRadius={4}
       elevation={2}
     >
-      <Pressable onPress={() => handlePress(item.id)}>
+      <Pressable onPress={() => handlePress(item.id, item.icon)}>
         <ImageEmergency name={item.icon} />
         <Text variant={"secondaryBold"} textAlign={"center"} mt={"s"}>
           {item.title}

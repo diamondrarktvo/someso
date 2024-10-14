@@ -1,21 +1,40 @@
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import { FlashList, ListRenderItem } from "@shopify/flash-list";
-import { Box, Button, EmptyList, Image, Row, Scaffold, Text } from "_shared";
+import {
+  Box,
+  Button,
+  EmptyList,
+  functionnalitySelectors,
+  Image,
+  Row,
+  Scaffold,
+  Text,
+} from "_shared";
 import { RFValue } from "_utils";
 import { ALL_EMERGENCY_SERVICES } from "../data";
 import { CardEmergency, CardEmergencyProps } from "./CardEmergency";
 import { useNavigation } from "@react-navigation/native";
+import { useSelector } from "react-redux";
+import { EmergencsI } from "../types";
 
 const EmergencyServiceScreen = () => {
-  const [emergencySelected, setEmergencySelected] = useState<number[]>([]);
+  const [emergencySelected, setEmergencySelected] = useState<{
+    id: number;
+    icon_emergency: string;
+  } | null>(null);
+  const moduleChoicedByUser = useSelector(functionnalitySelectors.menuChoiced);
   const navigation = useNavigation();
 
-  const handlePress = (idEmergency: number) => {
-    setEmergencySelected((prevSelected) =>
-      prevSelected.includes(idEmergency)
-        ? prevSelected.filter((id) => id !== idEmergency)
-        : [...prevSelected, idEmergency],
+  const emergencyDataRelativeToModuleChoiced = useMemo(() => {
+    return ALL_EMERGENCY_SERVICES.filter(
+      (emergency: EmergencsI) => emergency.module === moduleChoicedByUser,
     );
+  }, [moduleChoicedByUser]);
+
+  const handlePress = (idEmergency: number, icon_emergency: string) => {
+    if (idEmergency && icon_emergency) {
+      setEmergencySelected({ id: idEmergency, icon_emergency });
+    }
   };
 
   const renderItem: ListRenderItem<CardEmergencyProps> = ({ item }) => {
@@ -55,7 +74,7 @@ const EmergencyServiceScreen = () => {
           keyExtractor={(item, index) => item.id.toString()}
           numColumns={2}
           estimatedItemSize={200}
-          data={ALL_EMERGENCY_SERVICES}
+          data={emergencyDataRelativeToModuleChoiced}
           renderItem={renderItem}
           extraData={emergencySelected}
           showsVerticalScrollIndicator={false}
@@ -63,12 +82,14 @@ const EmergencyServiceScreen = () => {
         />
       </Box>
 
-      {emergencySelected.length > 0 && (
+      {emergencySelected && emergencySelected.icon_emergency && (
         <Box mt={"s"}>
           <Button
             label={"Suivant"}
             onPress={() => {
-              navigation.navigate("map_screen");
+              navigation.navigate("map_screen", {
+                icon_emergency: emergencySelected.icon_emergency,
+              });
             }}
             paddingHorizontal={"l"}
             height={RFValue(45)}

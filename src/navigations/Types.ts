@@ -16,7 +16,9 @@ export type StackParamList = {
   reading_screen: {
     titleOfCourse: string;
   };
-  map_screen: undefined;
+  map_screen: {
+    icon_emergency: string;
+  };
 };
 
 export type TabParamList = {
