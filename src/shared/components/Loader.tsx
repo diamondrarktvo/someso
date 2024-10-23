@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { ActivityIndicator, StyleSheet } from "react-native";
 import { Overlay } from "@rneui/themed";
 import { BoxProps } from "./Box";
@@ -30,11 +30,12 @@ const Loader: React.FC<Props> = ({
 }) => {
   const { colors, borderRadii } = useGetTheme();
   const { t } = useTranslation(["common"]);
+  const [isError, setIsError] = useState(error ? true : false);
 
   return (
     <>
       {children}
-      {error ? (
+      {error && isError ? (
         <Overlay
           isVisible
           overlayStyle={[
@@ -63,7 +64,7 @@ const Loader: React.FC<Props> = ({
             <Button
               variant="danger"
               label={t("actions.cancel")}
-              onPress={() => {}}
+              onPress={() => setIsError(false)}
               marginRight={"xs"}
             />
             {retry && (
