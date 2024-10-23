@@ -1,12 +1,15 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { ModuleT } from "../types/types";
+import { ResponseModuleI } from "../types/types";
 
-export interface moduleState extends ModuleT {}
+export interface moduleState extends Omit<ResponseModuleI, "message"> {}
 
 const initialState: moduleState = {
-  id: "",
-  title: "",
-  sections: [],
+  languages: "",
+  modules: {
+    mg: [],
+    fr: [],
+    en: [],
+  },
 };
 
 const moduleSlice = createSlice({
@@ -24,8 +27,8 @@ const moduleSlice = createSlice({
 });
 
 export const moduleSelectors = {
-  selectModule: (state: { module: moduleState }) => state.module,
-  selectSections: (state: { module: moduleState }) => state.module.sections,
+  selectModule: (state: { module: moduleState }) => state,
+  selectSections: (state: { module: moduleState }) => state,
 };
 
 export const { setModuleData, removeModuleData } = moduleSlice.actions;

@@ -6,12 +6,18 @@ import Box from "./Box";
 import Text from "./Text";
 import { heightPercentageToDP, widthPercentageToDP } from "_utils";
 import { useGetTheme } from "_theme";
+import { FetchBaseQueryError } from "@reduxjs/toolkit/query";
+import { SerializedError } from "@reduxjs/toolkit";
+import Button from "./Button";
+import Row from "./Row";
+import { useTranslation } from "react-i18next";
 
 type Props = {
   isOverlay?: boolean;
-  error?: any;
+  error?: FetchBaseQueryError | SerializedError | string | undefined;
   children: React.ReactNode;
   isLoading: boolean;
+  retry?: () => void;
 } & Partial<BoxProps>;
 
 const Loader: React.FC<Props> = ({
@@ -19,14 +25,59 @@ const Loader: React.FC<Props> = ({
   error,
   children,
   isLoading,
+  retry,
   ...props
 }) => {
-  const { colors } = useGetTheme();
+  const { colors, borderRadii } = useGetTheme();
+  const { t } = useTranslation(["common"]);
 
   return (
     <>
       {children}
-      {isLoading &&
+      {error ? (
+        <Overlay
+          isVisible
+          overlayStyle={[
+            styles.errorOverlay,
+            {
+              backgroundColor: colors.mainBackground,
+              borderRadius: borderRadii.lg,
+            },
+          ]}
+          animationType="fade"
+        >
+          <Box
+            padding={"s"}
+            flexDirection={"column"}
+            justifyContent={"space-between"}
+            alignItems={"center"}
+            height={heightPercentageToDP(20)}
+            width={widthPercentageToDP(70)}
+            borderRadius={"lg"}
+          >
+            <Text variant={"primary"} color={"black"}>
+              {JSON.stringify(error) || "An error occurred"}
+            </Text>
+          </Box>
+          <Row justifyContent={"center"}>
+            <Button
+              variant="danger"
+              label={t("actions.cancel")}
+              onPress={() => {}}
+              marginRight={"xs"}
+            />
+            {retry && (
+              <Button
+                variant="primary"
+                label={t("actions.retry")}
+                onPress={() => retry()}
+                marginLeft={"xs"}
+              />
+            )}
+          </Row>
+        </Overlay>
+      ) : (
+        isLoading &&
         (isOverlay ? (
           <Overlay
             isVisible
@@ -44,7 +95,7 @@ const Loader: React.FC<Props> = ({
               borderRadius={"lg"}
             >
               <ActivityIndicator size="large" color={colors.primary} />
-              <Text color={"offWhite"}>Veuillez patienter un instant ...</Text>
+              <Text color={"offWhite"}>{t("label.loading_title")}</Text>
             </Box>
           </Overlay>
         ) : (
@@ -60,10 +111,11 @@ const Loader: React.FC<Props> = ({
               borderRadius={"lg"}
             >
               <ActivityIndicator size="large" color={colors.primary} />
-              <Text color={"offWhite"}>Veuillez patienter un instant ...</Text>
+              <Text color={"offWhite"}>{t("label.loading_title")}</Text>
             </Box>
           </Box>
-        ))}
+        ))
+      )}
     </>
   );
 };
@@ -84,5 +136,8 @@ const styles = StyleSheet.create({
     zIndex: 2,
     justifyContent: "center",
     alignItems: "center",
+  },
+  errorOverlay: {
+    elevation: 5,
   },
 });

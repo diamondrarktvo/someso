@@ -1,5 +1,11 @@
 {
   "label": {
-    "loading_title": "Veuillez patienter un instant ..."
+    "loading_title": "Veuillez patienter un instant ...",
+    "sms_ana": "SMS Sana",
+    "sms_clim": "SMS Clim"
+  },
+  "actions": {
+    "cancel": "Abandonner",
+    "retry": "Réessayer"
   }
 }

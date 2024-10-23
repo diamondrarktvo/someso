@@ -13,6 +13,6 @@ export const BaseApi = createApi({
   refetchOnReconnect: true,
   refetchOnFocus: true,
   refetchOnMountOrArgChange: true,
-  tagTypes: [],
+  tagTypes: ["modules", "content"],
   endpoints: () => ({}),
 });

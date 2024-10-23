@@ -15,9 +15,11 @@ import { mainMenuStyles } from "./styles";
 import { ImageBackground, Pressable } from "react-native";
 import { useCallback } from "react";
 import { useDispatch } from "react-redux";
+import { useTranslation } from "react-i18next";
 
 const MainMenuScreen = () => {
   const dispatch = useDispatch();
+  const { t } = useTranslation();
   const onHandleChoiceModule = useCallback((module: ModuleSomesoTypes) => {
     dispatch(setMenuChoiced(module));
   }, []);
@@ -54,7 +56,7 @@ const MainMenuScreen = () => {
                 color={"white"}
                 textAlign={"center"}
               >
-                Choisissez un module d'abord
+                {t("menuscreen:bigTitle")}
               </Text>
             </ImageBackground>
           </Box>
@@ -73,11 +75,10 @@ const MainMenuScreen = () => {
             >
               <IconHealth width={RFValue(102)} height={RFValue(58)} />
               <Text variant={"veryBigTitle"} my={"s"}>
-                SMS Ana (Santé reproductive)
+                {t("menuscreen:module.sms_ana.title")}
               </Text>
               <Text variant={"secondary"} color={"grey"}>
-                Accédez à des conseils pratiques sur la santé reproductive, la
-                contraception, et les services de santé locaux.
+                {t("menuscreen:module.sms_ana.description")}
               </Text>
             </Box>
           </Pressable>
@@ -96,12 +97,10 @@ const MainMenuScreen = () => {
             >
               <IconClimat width={RFValue(102)} height={RFValue(58)} />
               <Text variant={"veryBigTitle"} my={"s"}>
-                SMS Clim (Changement climatique)
+                {t("menuscreen:module.sms_clim.title")}
               </Text>
               <Text variant={"secondary"} color={"grey"}>
-                Suivez des cours sur le changement climatique, comprenez ses
-                impacts sur votre environnement, et apprenez comment vous
-                adapter à ces changements.
+                {t("menuscreen:module.sms_clim.description")}
               </Text>
             </Box>
           </Pressable>

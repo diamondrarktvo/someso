@@ -1,0 +1,13 @@
+{
+  "bigTitle": "Choisissez un module d'abord",
+  "module": {
+    "sms_ana": {
+      "title": "SMS SAna (Santé reproductive)",
+      "description": "Accédez à des conseils pratiques sur la santé reproductive, la contraception, et les services de santé locaux."
+    },
+    "sms_clim": {
+      "title": "SMS Clim (Changement climatique)",
+      "description": "Suivez des cours sur le changement climatique, comprenez ses impacts sur votre environnement, et apprenez comment vous adapter à ces changements."
+    }
+  }
+}

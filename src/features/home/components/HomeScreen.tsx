@@ -21,13 +21,13 @@ import React from "react";
 const HomeScreen = () => {
   const { colors, sizes } = useGetTheme();
   const sectionSelectors = useSelector(moduleSelectors.selectSections);
-  const sectionList = sectionSelectors.map((section, index) => ({
+  /*const sectionList = sectionSelectors.map((section, index) => ({
     id: section.id,
     title: section.title,
     items: section.items ?? [],
     options: section.options ?? [],
     svgImage: index,
-  }));
+  }));*/
   const moduleChoicedByUser = useSelector(functionnalitySelectors.menuChoiced);
 
   const renderItem: ListRenderItem<CardItemProps> = ({ item }) => {
@@ -91,9 +91,9 @@ const HomeScreen = () => {
             keyExtractor={(item, index) => item.id.toString()}
             numColumns={2}
             estimatedItemSize={200}
-            data={sectionList}
+            data={[]}
             renderItem={renderItem}
-            extraData={sectionList}
+            extraData={[]}
             showsVerticalScrollIndicator={false}
             ListEmptyComponent={
               <EmptyList textToShow="Donnée pas disponible" />

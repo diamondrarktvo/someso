@@ -1,4 +1,3 @@
-import { ModuleT, SectionT, ItemT } from "./types/types";
 import Icon from "./components/Icon";
 import Box from "./components/Box";
 import Text from "./components/Text";
@@ -54,6 +53,12 @@ export {
   moduleSelectors,
 } from "./slice/moduleSlice";
 
-export { ModuleT, SectionT, ItemT } from "./types/types";
+export {
+  ModuleApi,
+  useGetAllModulesQuery,
+  useGetContentOfModuleQuery,
+} from "./api/moduleApi";
+
+export { ModuleT, SectionT, ItemT, MenuI, OptionI } from "./types/types";
 
 export { STYLES } from "./styles";

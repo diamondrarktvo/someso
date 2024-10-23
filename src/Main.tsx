@@ -1,6 +1,12 @@
 import { ThemeProvider } from "@shopify/restyle";
 import { StackNavigation } from "_navigations";
-import { functionnalitySelectors, ModuleT, setModuleData } from "_shared";
+import {
+  functionnalitySelectors,
+  Loader,
+  ModuleT,
+  setModuleData,
+  useGetAllModulesQuery,
+} from "_shared";
 import { storage } from "_storage";
 import { smsClimTheme, theme } from "_theme";
 import { useEffect, useMemo } from "react";
@@ -22,6 +28,13 @@ const Main = () => {
   const dispatch = useDispatch();
   const moduleChoicedByUser = useSelector(functionnalitySelectors.menuChoiced);
   const moduleData = ModuleDataJson.modules;
+  const {
+    data: modulesData,
+    refetch: refetchModuleData,
+    isLoading: moduleDataIsLoading,
+    isFetching: moduleDataIsFetching,
+    error: moduleDataError,
+  } = useGetAllModulesQuery(undefined);
 
   const toastConfig = {
     success: (props: ToastProps) => (
@@ -78,7 +91,7 @@ const Main = () => {
     }
   }, [moduleChoicedByUser]);
 
-  useEffect(() => {
+  /*useEffect(() => {
     if (moduleChoicedByUser) {
       const selectedModule = moduleData.find(
         (module: ModuleT) => module.id === moduleChoicedByUser,
@@ -87,7 +100,20 @@ const Main = () => {
         dispatch(setModuleData(selectedModule));
       }
     }
-  }, [moduleChoicedByUser, dispatch, moduleData]);
+  }, [moduleChoicedByUser, dispatch, moduleData]);*/
+
+  useEffect(() => {
+    if (moduleChoicedByUser && modulesData) {
+      if (modulesData.languages && modulesData.modules) {
+        dispatch(
+          setModuleData({
+            languages: modulesData.languages,
+            modules: modulesData.modules,
+          }),
+        );
+      }
+    }
+  }, [moduleChoicedByUser, dispatch, modulesData]);
 
   return (
     <ThemeProvider theme={themeToUsed}>
@@ -95,7 +121,13 @@ const Main = () => {
         <GestureHandlerRootView style={{ flex: 1 }}>
           <BottomSheetModalProvider>
             <StatusBar backgroundColor={statusBarBackgroundColor} />
-            <StackNavigation />
+            <Loader
+              isLoading={moduleDataIsLoading || moduleDataIsFetching}
+              error={moduleDataError}
+              retry={refetchModuleData}
+            >
+              <StackNavigation />
+            </Loader>
             <Toast config={toastConfig} />
           </BottomSheetModalProvider>
         </GestureHandlerRootView>

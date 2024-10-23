@@ -4,25 +4,46 @@ import * as Localization from "expo-localization";
 import { getDataToMMKV } from "_storage";
 import { Locales } from "./locales";
 
-const DEFAULT_LANGUAGE = "fr-FR";
+const DEFAULT_LANGUAGE = "fr";
 
 const initI18n = async () => {
-  let savedLanguage = getDataToMMKV("user.preference.language", "string");
+  try {
+    let savedLanguage = await getDataToMMKV(
+      "user.preference.language",
+      "string",
+    );
 
-  if (!savedLanguage) {
-    const allUsersLanguagePreferencies = Localization.getLocales();
-    savedLanguage = allUsersLanguagePreferencies[0].languageTag;
+    if (!savedLanguage) {
+      const allUsersLanguagePreferences = Localization.getLocales();
+      savedLanguage =
+        allUsersLanguagePreferences[0]?.languageTag || DEFAULT_LANGUAGE;
+    }
+
+    i18n.on("initialized", (options) => {
+      console.log("initié i18n");
+    });
+
+    await i18n.use(initReactI18next).init({
+      compatibilityJSON: "v3",
+      resources: Locales,
+      lng: savedLanguage as string,
+      fallbackLng: DEFAULT_LANGUAGE,
+      interpolation: {
+        escapeValue: false,
+      },
+    });
+  } catch (error) {
+    console.error("Error initializing i18n:", error);
+    await i18n.use(initReactI18next).init({
+      compatibilityJSON: "v3",
+      resources: Locales,
+      lng: DEFAULT_LANGUAGE,
+      fallbackLng: DEFAULT_LANGUAGE,
+      interpolation: {
+        escapeValue: false,
+      },
+    });
   }
-
-  i18n.use(initReactI18next).init({
-    compatibilityJSON: "v3",
-    resources: Locales,
-    lng: savedLanguage as string,
-    fallbackLng: DEFAULT_LANGUAGE,
-    interpolation: {
-      escapeValue: false,
-    },
-  });
 };
 
 initI18n();

@@ -1,3 +1,4 @@
+import "./i18n/index";
 import { Provider } from "react-redux";
 import { store } from "_store";
 import { LogBox } from "react-native";
