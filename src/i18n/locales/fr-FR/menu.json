@@ -2,7 +2,7 @@
   "bigTitle": "Choisissez un module d'abord",
   "module": {
     "sms_ana": {
-      "title": "SMS SAna (Santé reproductive)",
+      "title": "SMS Sana (Santé reproductive)",
       "description": "Accédez à des conseils pratiques sur la santé reproductive, la contraception, et les services de santé locaux."
     },
     "sms_clim": {

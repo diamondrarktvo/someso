@@ -14,9 +14,7 @@ const initI18n = async () => {
     );
 
     if (!savedLanguage) {
-      const allUsersLanguagePreferences = Localization.getLocales();
-      savedLanguage =
-        allUsersLanguagePreferences[0]?.languageTag || DEFAULT_LANGUAGE;
+      savedLanguage = DEFAULT_LANGUAGE;
     }
 
     i18n.on("initialized", (options) => {

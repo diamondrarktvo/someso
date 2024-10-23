@@ -27,7 +27,7 @@ const moduleSlice = createSlice({
 });
 
 export const moduleSelectors = {
-  selectModule: (state: { module: moduleState }) => state,
+  selectModule: (state: { module: moduleState }) => state.module.modules,
   selectSections: (state: { module: moduleState }) => state,
 };
 

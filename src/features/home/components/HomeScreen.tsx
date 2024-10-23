@@ -17,10 +17,15 @@ import { FlashList, ListRenderItem } from "@shopify/flash-list";
 import { CardItem, CardItemProps } from "./CardItem";
 import { useSelector } from "react-redux";
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 const HomeScreen = () => {
   const { colors, sizes } = useGetTheme();
-  const sectionSelectors = useSelector(moduleSelectors.selectSections);
+  const {
+    t,
+    i18n: { language },
+  } = useTranslation();
+  const moduleFromSelectors = useSelector(moduleSelectors.selectModule);
   /*const sectionList = sectionSelectors.map((section, index) => ({
     id: section.id,
     title: section.title,
@@ -28,6 +33,10 @@ const HomeScreen = () => {
     options: section.options ?? [],
     svgImage: index,
   }));*/
+
+  console.log("moduleFromSelectors", moduleFromSelectors);
+  console.log("language", language);
+
   const moduleChoicedByUser = useSelector(functionnalitySelectors.menuChoiced);
 
   const renderItem: ListRenderItem<CardItemProps> = ({ item }) => {
